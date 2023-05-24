@@ -34,13 +34,6 @@ public class DonerKing { // класс Page Object для взаимодейст
     // результаты поиска
     @FindBy(xpath = "//div[@class='row gallery inner-gallery']")
     private WebElement SearchResults;
-//
-//    // путь до каждого блока с результатом
-//    @FindBy(xpath = "//div[@class='col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-4 menuItemWrapper']")
-//    private WebElement SearchResultElement;
-//
-//    @FindBy(xpath = "//div[@class='col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-4 menuItemWrapper']//div[@class='imageData']/div")
-//    private WebElement SearchResultElementStep1;
 
     @FindBy(xpath="//div[@class='col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-4 menuItemWrapper']//div[@class='imageData']//div[@class='h4']")
     List<WebElement> ResultItems;
