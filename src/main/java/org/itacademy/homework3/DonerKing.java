@@ -21,42 +21,42 @@ public class DonerKing { // класс Page Object для взаимодейст
 
     // кнопка открыть поле поиска
     @FindBy(xpath = "//a[@class='main-header__search-block']//*[name()='svg']")
-    private WebElement SearchButton;
+    private WebElement searchButton;
 
     // поле поиска
     @FindBy(xpath = "//input[@class='search-header__input']")
-    private WebElement SearchField;
+    private WebElement searchField;
 
     // кнопка Искать
     @FindBy(xpath = "//button[@class='search-header__btn']")
-    private WebElement SearchStartButton;
+    private WebElement searchStartButton;
 
     // результаты поиска
     @FindBy(xpath = "//div[@class='row gallery inner-gallery']")
-    private WebElement SearchResults;
+    private WebElement searchResults;
 
     @FindBy(xpath="//div[@class='col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-4 menuItemWrapper']//div[@class='imageData']//div[@class='h4']")
-    List<WebElement> ResultItems;
+    List<WebElement> resultItems;
 
     // методы класса пэйж обжект это действия с элементы страницы
 
     // нажать кнопку открыть поле поиска
     public void clickSearchButton() {
-        SearchButton.click();
+        searchButton.click();
     }
 
     // получить поле поиска
     public WebElement getSearchField() {
-        return SearchField;
+        return searchField;
     }
 
     // нажать кнопку Искать
     public void clickSearchStartButton() {
-        SearchStartButton.click();
+        searchStartButton.click();
     }
 
 
     public List<WebElement> getSearchResultList() {
-        return ResultItems;
+        return resultItems;
     }
 }
