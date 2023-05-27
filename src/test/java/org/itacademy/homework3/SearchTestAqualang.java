@@ -3,44 +3,46 @@ package org.itacademy.homework3;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class SearchTest {
+public class SearchTestAqualang {
 
     @BeforeTest
-    public static void setup() {
-        System.out.println("BEFORE TEST");
+    public static void beforetest() {
+        System.out.println("BEFORE TEST aqualang");
         Config.getProperties();
     }
 
-    // дата провайдер - отдельный метод который возвращает матрицу обжектов
-    @DataProvider(name = "menuItems") // если нет имени то определяется по имени метода
-    public Object[][] menuItems() // имя метода дата провайдера
-    {
-        return new Object[][]{{"донер"}, {"бургер"}, {"акваланг"}, {"пончики"}};
+    @BeforeClass
+    public static void beforeclass() {
+        System.out.println("BEFORE CLASS aqualang");
     }
 
-    @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
-    public void verifySearchTest(String menuItem) {
+    @BeforeSuite
+    public static void beforesuite() {
+        System.out.println("BEFORE SUITE aqualang");
+    }
+
+    @BeforeMethod
+    public static void beforemethod() {
+        System.out.println("BEFORE METHOD aqualang");
+    }
+
+    @Test(testName = "CheckSearch", description = "Verifys that search box works", enabled = true)
+    public void verifySearchTest() {
         System.setProperty("webdriver.chrome.driver", Config.getChromeDriver());
         WebDriver driver = new ChromeDriver();
         driver.get(Config.getTestPage());
         DonerKing donerKing = new DonerKing(driver);
         SoftAssert sa = new SoftAssert();
 
-        driver.manage().window().maximize();
+        String menuItem = "акваланг";
         donerKing.clickSearchButton();
-        System.out.println("SEARCH FIELD DISPLAYED: " + donerKing.getSearchField().isDisplayed());
-
         donerKing.getSearchField().sendKeys(menuItem); // метод которые возвращает само поле поиска
-        donerKing.clickSearchStartButton(); // метод нажать кнопку Искать. КАК ЛУЧШЕ ?
-//            donerKing.getSearchField().submit(); // метод выполнить поле поиска. КАК ЛКЧЩЕ ?
+        donerKing.getSearchField().submit();
 
         // получить лист найденных элементов
         List<WebElement> items = donerKing.getSearchResultList();

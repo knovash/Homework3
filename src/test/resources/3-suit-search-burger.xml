@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--запустить тест класс бургер-->
+<suite name="Verify search box work">
+    <test name="Test burger">
+        <classes>
+            <class name="org.itacademy.homework3.SearchTestBurger"/>
+        </classes>
+    </test>
+</suite>

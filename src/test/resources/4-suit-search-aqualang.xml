@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--запустить тест класс акваланг-->
+<suite name="Verify search box work">
+    <test name="Test aqualang">
+        <classes>
+            <class name="org.itacademy.homework3.SearchTestAqualang"/>
+        </classes>
+    </test>
+</suite>

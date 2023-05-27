@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--запустить тест класс с дата провайдером из 4х позиций. по два браузера паралельно-->
+<!--бефосьют, бефотест, бефокласс - выполнится один раз перед тестом-->
+<!--бефометод выполниться паралельно -->
+<suite name="Verify search box work" data-provider-thread-count="2">
+    <test name="Test all parallel">
+        <classes>
+            <class name="org.itacademy.homework3.SearchTestAllParallel"/>
+        </classes>
+    </test>
+</suite>
