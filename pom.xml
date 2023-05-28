@@ -48,8 +48,15 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin-version}</version>
                 <configuration>
+                    <suiteXmlFiles>
+<!--                        <suiteXmlFile>src/test/resources/1-suit-search-all.xml</suiteXmlFile>-->
+                        <suiteXmlFile>src/test/resources/3-suit-search-burger.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>src/test/resources/6-suit-search-all-classes-parallel.xml</suiteXmlFile>-->
+                    </suiteXmlFiles>
 <!--                    <includes>-->
-<!--                        <include></include>-->
+<!--                        <include>-->
+<!--                            SearchTestBurger.java-->
+<!--                        </include>-->
 <!--                    </includes>-->
                 </configuration>
             </plugin>
