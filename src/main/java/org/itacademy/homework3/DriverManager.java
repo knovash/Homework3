@@ -27,7 +27,8 @@ public class DriverManager {
     public static void quitDriver() {
         System.out.println("MANAGER QUIT");
         try {
-            driver.quit();
+            driver.quit(); // закрыть браузер и драйвер
+            driver = null; // занулить драйвер чтоб создался новый инстанс в синглтон
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,6 +38,7 @@ public class DriverManager {
         System.out.println("MANAGER CLOSE");
         try {
             driver.close();
+            driver = null;
         } catch (Exception e) {
             e.printStackTrace();
         }
