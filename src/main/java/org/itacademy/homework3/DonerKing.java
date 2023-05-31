@@ -1,6 +1,5 @@
 package org.itacademy.homework3;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,7 +38,7 @@ public class DonerKing { // класс Page Object для взаимодейст
     @FindBy(xpath = "//div[@class='row gallery inner-gallery']")
     private WebElement searchResults;
 
-    @FindBy(xpath="//div[@class='col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-4 menuItemWrapper']//div[@class='imageData']//div[@class='h4']")
+    @FindBy(xpath = "//div[@class='col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-4 menuItemWrapper']//div[@class='imageData']//div[@class='h4']")
     List<WebElement> resultItems;
 
     // методы класса пэйж обжект это действия с элементы страницы
@@ -60,7 +59,6 @@ public class DonerKing { // класс Page Object для взаимодейст
     public void clickSearchStartButton() {
         searchStartButton.click();
     }
-
 
     public List<WebElement> getSearchResultList() {
         return resultItems;
