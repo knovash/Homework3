@@ -1,5 +1,6 @@
 package org.itacademy.homework3;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class DonerKing { // класс Page Object для взаимодействия с элементами страницы
 
-    public WebDriver driver; // поле класса
+    private WebDriver driver; // поле класса
 
     // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
     public DonerKing(WebDriver driver) {
@@ -22,6 +23,9 @@ public class DonerKing { // класс Page Object для взаимодейст
     // кнопка открыть поле поиска
     @FindBy(xpath = "//a[@class='main-header__search-block']//*[name()='svg']")
     private WebElement searchButton;
+
+//    String path = "//a[@class='main-header__search-block']//*[name()='svg']";
+//    private WebElement searchButton = driver.findElement(By.xpath(path));
 
     // поле поиска
     @FindBy(xpath = "//input[@class='search-header__input']")
@@ -42,6 +46,8 @@ public class DonerKing { // класс Page Object для взаимодейст
 
     // нажать кнопку открыть поле поиска
     public void clickSearchButton() {
+        System.out.println("CLICK");
+        System.out.println("CLICK DRIVER " + driver);
         searchButton.click();
     }
 

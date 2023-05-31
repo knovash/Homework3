@@ -10,43 +10,60 @@ import java.util.List;
 
 public class SearchTestAll {
 
-    @BeforeTest
-    public static void beforetest() {
-        System.out.println("BEFORE TEST");
-        Config.getProperties();
-    }
+    private WebDriver driver;
+    private DonerKing donerKing;
 
-    @BeforeClass
-    public static void beforeclass() {
-        System.out.println("BEFORE CLASS");
-    }
-
-    @BeforeSuite
-    public static void beforesuite() {
-        System.out.println("BEFORE SUITE");
-    }
-
-    @BeforeMethod
-    public static void beforemethod() {
-        System.out.println("BEFORE METHOD");
-    }
+//    @BeforeTest
+//    public static void beforetest() {
+//        System.out.println("BEFORE TEST");
+////        Config.getProperties();
+//         driver = DriverManager.getDriver();
+//         donerKing = new DonerKing(driver);
+//    }
 
     // дата провайдер - отдельный метод который возвращает матрицу обжектов
     @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
     public Object[][] menuItems() // имя метода дата провайдера
     {
-        return new Object[][]{{"донер"}, {"бургер"}, {"акваланг"}, {"пончики"}};
+        return new Object[][]{{"донер"}, {"бургер"}};
+    }
+    @BeforeClass
+    public void startPage() {
+        donerKing = new DonerKing(driver);
+        System.out.println("BEFORECLASS CLASS DRIVER " + driver);
+        driver.get(Config.getTestPage());
+    }
+    @BeforeTest
+    public void setUp() {
+        driver = DriverManager.getDriver();
+        System.out.println("BEFORE TEST DRIVER " + driver);
+        driver.get(Config.getTestPage());
+    }
+
+    @BeforeMethod
+    public void preparation() {
+        driver = DriverManager.getDriver();
+        System.out.println("BEFORE METHOD DRIVER " + driver);
+        driver.get(Config.getTestPage());
+//        driver.get(URL);
     }
 
     @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
     public void verifySearchTest(String menuItem) {
-        System.setProperty("webdriver.chrome.driver", Config.getChromeDriver());
-        WebDriver driver = new ChromeDriver();
-        driver.get(Config.getTestPage());
-        DonerKing donerKing = new DonerKing(driver);
+
+//        System.setProperty("webdriver.chrome.driver", Config.getChromeDriver());
+//        WebDriver driver = new ChromeDriver();
+//        driver.get(Config.getTestPage());
+//        DonerKing donerKing = new DonerKing(driver);
+
+//        driver = DriverManager.getDriver(); // вынесено в бефл тест
+        System.out.println("TEST DRIVER " + menuItem + " " + driver);
+
+//        donerKing = new DonerKing(driver); // вынесено в бефокласс
+        System.out.println("TEST DONERKING " + menuItem + " " + donerKing);
+
         SoftAssert sa = new SoftAssert();
 
-        driver.manage().window().maximize();
         donerKing.clickSearchButton();
         System.out.println("SEARCH FIELD DISPLAYED: " + donerKing.getSearchField().isDisplayed());
 
@@ -72,7 +89,7 @@ public class SearchTestAll {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        driver.quit(); // закрыть драйвер и браузер. close закроет окно но не драйвер
+//        driver.close(); // закрыть драйвер и браузер. close закроет окно но не драйвер
     }
 
     @AfterTest
