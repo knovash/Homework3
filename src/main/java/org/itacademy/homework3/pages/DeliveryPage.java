@@ -4,21 +4,15 @@ import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class DeliveryPage extends BasePage{ // класс Page Object для взаимодействия с элементами страницы
+public class DeliveryPage extends BasePage { // класс Page Object для взаимодействия с элементами страницы
 
-    private WebDriver driver; // поле класса
+    private WebDriver driver;
 
+    // конструктор класса наследуется от бэйспэйж
     public DeliveryPage(WebDriver driver) {
         super(driver);
     }
-
-    // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
-//    public DeliveryPage(WebDriver driver) {
-//        PageFactory.initElements(driver, this);
-//        this.driver = driver;
-//    }
 
     // поля класса пэйж обжект это элементы страницы
 
@@ -43,8 +37,6 @@ public class DeliveryPage extends BasePage{ // класс Page Object для в�
 
     @FindBy(xpath = "//div[@id='delivery_status' and @class='fail']")
     private WebElement statusFail;
-
-
 
 
     // методы класса пэйж обжект это действия с элементы страницы

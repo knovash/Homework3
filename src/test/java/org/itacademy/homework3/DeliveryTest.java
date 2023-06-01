@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-public class DeliveryPageTest extends BaseTest {
+public class DeliveryTest extends BaseTest {
 
     private DeliveryPage deliveryPage;
 

@@ -11,10 +11,7 @@ public class BasePage {
 
     private WebDriver driver;
 
-    //    public BasePage(WebDriver driver) {
-//        PageFactory.initElements(driver, this);
-//        this.driver = driver;
-//    }
+    // конструктор пайджфэктори
     public BasePage(WebDriver driver) {
         PageFactory.initElements(DriverManager.getDriver(), this);
         this.driver = driver;

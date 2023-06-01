@@ -3,13 +3,13 @@
 <suite name="Verify search box work">
     <test name="Test addresses and menuitems">
         <classes>
-            <class name="org.itacademy.homework3.DeliveryPageTest">
+            <class name="org.itacademy.homework3.DeliveryTest">
                 <methods>
                     <include name="verifyDeliveryTest"/>
                     <include name="verifyNothing"/>
                 </methods>
             </class>
-            <class name="org.itacademy.homework3.SearchPageTest"/>
+            <class name="org.itacademy.homework3.SearchTest"/>
         </classes>
     </test>
 </suite>

@@ -11,7 +11,7 @@ public class BaseTest {
     @BeforeTest
     public void beforetest() {
         System.out.println("BEFORE TEST get driver (in BaseTest)");
-        // зачем создавать перед тестом если все
+        // зачем создавать перед тестом если всегда выполниться в бефо класс?
 //        driver = DriverManager.getDriver(); // создает драйвер браузера для всех выполняемых тестов
     }
 
@@ -34,7 +34,7 @@ public class BaseTest {
     @AfterTest
     public void aftertest() {
         System.out.println("AFTER TEST quit driver (in BaseTest)");
-//        DriverManager.quitDriver();
+        DriverManager.quitDriver();
     }
 
 }

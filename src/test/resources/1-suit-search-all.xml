@@ -3,7 +3,7 @@
 <suite name="Verify search box work">
     <test name="Test all">
         <classes>
-            <class name="org.itacademy.homework3.SearchPageTest"/>
+            <class name="org.itacademy.homework3.SearchTest"/>
         </classes>
     </test>
 </suite>
