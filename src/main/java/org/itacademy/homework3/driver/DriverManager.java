@@ -1,5 +1,6 @@
-package org.itacademy.homework3;
+package org.itacademy.homework3.driver;
 
+import org.itacademy.homework3.utils.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 

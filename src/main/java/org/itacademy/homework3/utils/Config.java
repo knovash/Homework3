@@ -1,4 +1,6 @@
-package org.itacademy.homework3;
+package org.itacademy.homework3.utils;
+
+import org.itacademy.homework3.Main;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,7 +12,8 @@ import java.util.Properties;
 public class Config {
 
     private static String chromeDriver;
-    private static String testPage;
+    private static String pageSearch;
+    private static String pageDelivery;
 
     public static void getProperties() {
         Properties properties = new Properties();
@@ -21,7 +24,8 @@ public class Config {
             properties.load(in);
             in.close();
             chromeDriver = properties.getProperty("chromedriver");
-            testPage = properties.getProperty("testpage");
+            pageSearch = properties.getProperty("page-main-search");
+            pageDelivery = properties.getProperty("page-delivery");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -31,7 +35,11 @@ public class Config {
         return chromeDriver;
     }
 
-    public static String getTestPage() {
-        return testPage;
+    public static String getPageSearch() {
+        return pageSearch;
+    }
+
+    public static String getPageDelivery() {
+        return pageDelivery;
     }
 }

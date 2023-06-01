@@ -1,5 +1,6 @@
-package org.itacademy.homework3;
+package org.itacademy.homework3.pages;
 
+import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,12 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class DonerKing { // класс Page Object для взаимодействия с элементами страницы
+public class MainSearch { // класс Page Object для взаимодействия с элементами страницы
 
     private WebDriver driver; // поле класса
 
     // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
-    public DonerKing(WebDriver driver) {
+    public MainSearch(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -47,6 +48,7 @@ public class DonerKing { // класс Page Object для взаимодейст
     public void clickSearchButton() {
         System.out.println("CLICK");
         System.out.println("CLICK DRIVER " + driver);
+        WaitUtils.waitForVisibility(searchButton);
         searchButton.click();
     }
 
