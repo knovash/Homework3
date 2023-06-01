@@ -6,16 +6,14 @@ import org.itacademy.homework3.steps.steps.stepsSearch.StepGetResults;
 import org.itacademy.homework3.steps.steps.stepsSearch.StepRunSearch;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class SearchPageTest {
+public class SearchPageTest extends BaseTest{
 
-    private WebDriver driver;
     private SearchPage searchPage;
 
     // дата провайдер - отдельный метод который возвращает матрицу обжектов

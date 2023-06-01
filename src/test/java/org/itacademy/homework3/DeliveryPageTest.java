@@ -9,11 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class DeliveryPageTest {
+public class DeliveryPageTest extends BaseTest{
 
-    private WebDriver driver;
     private DeliveryPage deliveryPage;
-
 
     @BeforeTest
     public void beforetest() {
@@ -32,12 +30,16 @@ public class DeliveryPageTest {
         driver.get(Config.getPageDelivery());
         deliveryPage = new DeliveryPage(driver);
     }
+    @DataProvider(name = "addresses", parallel = false) // если нет имени то определяется по имени метода
+    public Object[][] addresses() // имя метода дата провайдера
+    {
+        return new Object[][]{{"Кульман", "15"}, {"Богдановича", "10"},  {"влавыав", "10"}, };
+    }
 
-    @Test(testName = "CheckDelivery", description = "Verifys that search box works", enabled = true)
-    public void verifyDeliveryTest() {
-        deliveryPage.getFieldCity().sendKeys("Minsk");
-        deliveryPage.getFieldStreet().sendKeys("Kulfffman");
-        deliveryPage.getFieldBuilding().sendKeys("15");
+    @Test(testName = "CheckDelivery", dataProvider = "addresses", description = "Verifys delivery addressses", enabled = true)
+    public void verifyDeliveryTest(String street, String building) {
+        deliveryPage.getFieldStreet().sendKeys(street);
+        deliveryPage.getFieldBuilding().sendKeys(building);
         deliveryPage.clickButtonCheck();
 
         Boolean status = false;
