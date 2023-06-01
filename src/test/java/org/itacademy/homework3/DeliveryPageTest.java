@@ -1,11 +1,9 @@
 package org.itacademy.homework3;
 
-import org.itacademy.homework3.driver.DriverManager;
 import org.itacademy.homework3.pages.DeliveryPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -15,17 +13,6 @@ public class DeliveryPageTest extends BaseTest {
 
     private DeliveryPage deliveryPage;
 
-    @BeforeClass
-    public void beforeclass() {
-        driver = DriverManager.getDriver(); // в бефо тест недостаточно. тут нужен для запуска следущего теста в сьюте
-        System.out.println("\nBEFORE CLASS DELIVERY timeouts 5");
-        // для этого класса понижаем ожидание чтоб долго неждать если адрес ненайден
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-//        driver.get(Config.getPageDelivery());
-//        deliveryPage = new DeliveryPage(driver);
-    }
-
-
     @BeforeMethod
     public void beforemethod() {
 //        driver = DriverManager.getDriver(); // достаточно создать в бефо класс
@@ -33,6 +20,7 @@ public class DeliveryPageTest extends BaseTest {
         driver.get(Config.getPageDelivery());
         deliveryPage = new DeliveryPage(driver); // обновляет браузер чтоб ввести в пустые поля
         // перед каждым запуском метода с новым элементом датапровайдера
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @DataProvider(name = "addresses", parallel = false) // если нет имени то определяется по имени метода
