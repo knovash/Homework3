@@ -23,16 +23,6 @@ public class SearchPageTest extends BaseTest{
         return new Object[][]{{"донер"}, {"бургер"}};
     }
 
-    @BeforeTest
-    public void beforetest() {
-        driver = DriverManager.getDriver();
-    }
-
-    @BeforeClass
-    public void beforeclass() {
-        searchPage = new SearchPage(driver);
-    }
-
     @BeforeMethod
     public void beforemethod() {
         driver = DriverManager.getDriver();
@@ -55,22 +45,7 @@ public class SearchPageTest extends BaseTest{
                 .peek(t -> sa.assertTrue(t.contains(menuItem), "ЭТО НЕ " + menuItem + " " + t))
                 .forEach(System.out::println);
         sa.assertAll();
-
         WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
-    }
-
-    @AfterMethod // выполниться после каждого элемента дата провайдера
-    public void aftermethod() {
-        System.out.println("AFTER METHOD");
-        DriverManager.quitDriver();
-    }
-    @AfterClass
-    public void afterclass() {
-        System.out.println("AFTER CLASS");
-    }
-    @AfterTest
-    public void aftertest() {
-        System.out.println("AFTER TEST");
     }
 }
 
