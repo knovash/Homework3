@@ -6,7 +6,7 @@
 <suite name="Verify search box work">
     <test name="Test all">
         <classes>
-            <class name="org.itacademy.homework3.SearchAllTest"/>
+            <class name="org.itacademy.homework3.SearchPageTest"/>
         </classes>
     </test>
 </suite>

@@ -1,22 +1,22 @@
 package org.itacademy.homework3;
 
 import org.itacademy.homework3.driver.DriverManager;
-import org.itacademy.homework3.pages.MainSearch;
-import org.itacademy.homework3.steps.StepCheckResults;
-import org.itacademy.homework3.steps.StepGetResults;
-import org.itacademy.homework3.steps.StepRunSearch;
+import org.itacademy.homework3.pages.SearchPage;
+import org.itacademy.homework3.steps.steps.stepsSearch.StepGetResults;
+import org.itacademy.homework3.steps.steps.stepsSearch.StepRunSearch;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class SearchAllTest {
+public class SearchPageTest {
 
     private WebDriver driver;
-    private MainSearch mainSearch;
+    private SearchPage searchPage;
 
     // дата провайдер - отдельный метод который возвращает матрицу обжектов
     @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
@@ -32,7 +32,7 @@ public class SearchAllTest {
 
     @BeforeClass
     public void beforeclass() {
-        mainSearch = new MainSearch(driver);
+        searchPage = new SearchPage(driver);
     }
 
     @BeforeMethod
@@ -40,14 +40,24 @@ public class SearchAllTest {
         driver = DriverManager.getDriver();
         System.out.println("BEFORE METHOD DRIVER " + driver);
         driver.get(Config.getPageSearch());
-        mainSearch = new MainSearch(driver);
+        searchPage = new SearchPage(driver);
     }
 
     @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
     public void verifySearchTest(String menuItem) {
-        StepRunSearch.runSearch(mainSearch, menuItem); // запустить поиск элемента меню
-        List<WebElement> items = StepGetResults.get(mainSearch); // получить лист найденных элементов
-        StepCheckResults.check(mainSearch, items, menuItem);
+        StepRunSearch.runSearch(searchPage, menuItem); // запустить поиск элемента меню
+        List<WebElement> items = StepGetResults.get(searchPage); // получить лист найденных элементов
+
+        System.out.println("\nFOUND ITEMS CONTAINS: " + menuItem);
+        SoftAssert sa = new SoftAssert();
+        sa.assertFalse(items.isEmpty(), "RESULT EMPTY");
+        items.stream()
+                .map(w -> w.getText().toLowerCase()) // из каждого найденного элемнта получаем текст
+                // проверяем что текст элемента содержит искомый текст
+                .peek(t -> sa.assertTrue(t.contains(menuItem), "ЭТО НЕ " + menuItem + " " + t))
+                .forEach(System.out::println);
+        sa.assertAll();
+
         WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
     }
 

@@ -8,12 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class MainSearch { // класс Page Object для взаимодействия с элементами страницы
+public class SearchPage { // класс Page Object для взаимодействия с элементами страницы
 
     private WebDriver driver; // поле класса
 
     // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
-    public MainSearch(WebDriver driver) {
+    public SearchPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }

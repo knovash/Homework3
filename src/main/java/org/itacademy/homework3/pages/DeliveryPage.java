@@ -1,18 +1,17 @@
 package org.itacademy.homework3.pages;
 
+import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
-public class Delivery { // класс Page Object для взаимодействия с элементами страницы
+public class DeliveryPage { // класс Page Object для взаимодействия с элементами страницы
 
     private WebDriver driver; // поле класса
 
     // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
-    public Delivery(WebDriver driver) {
+    public DeliveryPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -32,8 +31,16 @@ public class Delivery { // класс Page Object для взаимодейст�
     private WebElement fieldBuilding;
 
     // кнопка проверить
-    @FindBy(xpath = "//button[@class='search-header__btn']")
+    @FindBy(xpath = "//*[@id='search-query']")
     private WebElement buttonCheck;
+
+    @FindBy(xpath = "//div[@id='delivery_status' and @class='success']")
+    private WebElement statusSuccess;
+
+    @FindBy(xpath = "//div[@id='delivery_status' and @class='fail']")
+    private WebElement statusFail;
+
+
 
 
     // методы класса пэйж обжект это действия с элементы страницы
@@ -51,7 +58,16 @@ public class Delivery { // класс Page Object для взаимодейст�
     }
 
     public void clickButtonCheck() {
+        WaitUtils.waitForVisibility(buttonCheck);
         buttonCheck.click();
+    }
+
+    public WebElement getStatusSuccess() {
+        return statusSuccess;
+    }
+
+    public WebElement getStatusFail() {
+        return statusFail;
     }
 
 }
