@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<!--запустить тест класс с датапровайдером из 4х позиций последовательно-->
-<!--бефосьют, бефотест, бефокласс - выполнится один раз перед тестом-->
-<!--бефометод выполниться 4 раза перед запуском метода verifySearchTest -->
 <suite name="Verify search box work">
     <test name="Test all">
         <classes>
