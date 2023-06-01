@@ -1,6 +1,7 @@
 package org.itacademy.homework3;
 
 import org.itacademy.homework3.driver.DriverManager;
+import org.itacademy.homework3.pages.DeliveryPage;
 import org.itacademy.homework3.pages.SearchPage;
 import org.itacademy.homework3.steps.steps.stepsSearch.StepGetResults;
 import org.itacademy.homework3.steps.steps.stepsSearch.StepRunSearch;
@@ -10,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
+import java.time.Duration;
 import java.util.List;
 
 public class SearchPageTest extends BaseTest{
@@ -23,13 +25,34 @@ public class SearchPageTest extends BaseTest{
         return new Object[][]{{"донер"}, {"бургер"}};
     }
 
+    @BeforeClass
+    public void beforeclass() {
+        driver = DriverManager.getDriver(); // в бефо тест недостаточно. тут нужен для запуска следущего теста в сьюте
+        System.out.println("\nBEFORE CLASS SEARCH timeouts 10");
+        // для этого класса ожидание 10 сек
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.get(Config.getPageDelivery());
+//        deliveryPage = new DeliveryPage(driver);
+    }
+
+
     @BeforeMethod
     public void beforemethod() {
-        driver = DriverManager.getDriver();
-        System.out.println("BEFORE METHOD DRIVER " + driver);
+//        driver = DriverManager.getDriver(); // достаточно создать в бефо класс
+        System.out.println("\nBEFORE METHOD SEARCH get page searchPage " + Config.getPageSearch());
         driver.get(Config.getPageSearch());
-        searchPage = new SearchPage(driver);
+        searchPage = new SearchPage(driver); // обновляет браузер чтоб ввести в пустые поля
+        // перед каждым запуском метода с новым элементом датапровайдера
     }
+
+
+//    @BeforeMethod
+//    public void beforemethod() {
+//        driver = DriverManager.getDriver();
+//        System.out.println("BEFORE METHOD DRIVER " + driver);
+//        driver.get(Config.getPageSearch());
+//        searchPage = new SearchPage(driver);
+//    }
 
     @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
     public void verifySearchTest(String menuItem) {

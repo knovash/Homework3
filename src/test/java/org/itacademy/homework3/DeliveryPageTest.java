@@ -17,8 +17,8 @@ public class DeliveryPageTest extends BaseTest {
 
     @BeforeClass
     public void beforeclass() {
-//        driver = DriverManager.getDriver(); // достаточно создать в бефо тест
-        System.out.println("\nBEFORE CLASS DRIVER (in test) " + driver);
+        driver = DriverManager.getDriver(); // в бефо тест недостаточно. тут нужен для запуска следущего теста в сьюте
+        System.out.println("\nBEFORE CLASS DELIVERY timeouts 5");
         // для этого класса понижаем ожидание чтоб долго неждать если адрес ненайден
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 //        driver.get(Config.getPageDelivery());
@@ -29,7 +29,7 @@ public class DeliveryPageTest extends BaseTest {
     @BeforeMethod
     public void beforemethod() {
 //        driver = DriverManager.getDriver(); // достаточно создать в бефо класс
-        System.out.println("\nBEFORE METHOD DRIVER (in test) " + driver);
+        System.out.println("\nBEFORE METHOD DELIVERY get page deliveryPage " + Config.getPageDelivery());
         driver.get(Config.getPageDelivery());
         deliveryPage = new DeliveryPage(driver); // обновляет браузер чтоб ввести в пустые поля
         // перед каждым запуском метода с новым элементом датапровайдера

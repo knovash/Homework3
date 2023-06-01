@@ -12,7 +12,7 @@ public class BaseTest {
     @BeforeTest
     public void beforetest() {
         System.out.println("BEFORE TEST get driver (in BaseTest)");
-        driver = DriverManager.getDriver();
+        driver = DriverManager.getDriver(); // создает драйвер браузера для всех выполняемых тестов
     }
 
     @AfterMethod // выполниться после каждого элемента дата провайдера
@@ -28,7 +28,7 @@ public class BaseTest {
     @AfterTest
     public void aftertest() {
         System.out.println("AFTER TEST quit driver (in BaseTest)");
-        DriverManager.quitDriver();
+//        DriverManager.quitDriver();
     }
 
 }
