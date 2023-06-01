@@ -50,8 +50,11 @@ public class DeliveryPageTest extends BaseTest {
     @Test(testName = "NotTest", description = "Verifys nothing", enabled = true)
     public void verifyNothing() {
         System.out.println("\nTEST NOTHING");
+        deliveryPage.topHeaderAddressesClick();
+        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
+        deliveryPage.topHeaderDeliveryClick();
+        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
         deliveryPage.getFieldStreet().sendKeys("street");
-        WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
         Assert.assertTrue(true, "NOT TRUE");
     }
 }

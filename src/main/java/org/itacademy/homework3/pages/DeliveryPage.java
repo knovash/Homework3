@@ -6,15 +6,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DeliveryPage { // класс Page Object для взаимодействия с элементами страницы
+public class DeliveryPage extends BasePage{ // класс Page Object для взаимодействия с элементами страницы
 
     private WebDriver driver; // поле класса
 
-    // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
     public DeliveryPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+        super(driver);
     }
+
+    // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
+//    public DeliveryPage(WebDriver driver) {
+//        PageFactory.initElements(driver, this);
+//        this.driver = driver;
+//    }
 
     // поля класса пэйж обжект это элементы страницы
 
