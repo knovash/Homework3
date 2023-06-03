@@ -1,5 +1,7 @@
 package org.itacademy.homework3.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +12,9 @@ import java.util.List;
 public class SearchPage extends BasePage { // класс Page Object для взаимодействия с элементами страницы
 
     private WebDriver driver;
+
+
+    private static final Logger LOGGER = LogManager.getLogger(SearchPage.class);
 
     // конструктор класса наследуется от бэйспэйж
     public SearchPage(WebDriver driver) {
@@ -45,8 +50,8 @@ public class SearchPage extends BasePage { // класс Page Object для вз
 
     // нажать кнопку открыть поле поиска
     public void clickSearchButton() {
-        System.out.println("CLICK");
-        System.out.println("CLICK DRIVER " + driver);
+        LOGGER.info("CLICK");
+        LOGGER.info("CLICK DRIVER " + driver);
         WaitUtils.waitForVisibility(searchButton);
         searchButton.click();
     }

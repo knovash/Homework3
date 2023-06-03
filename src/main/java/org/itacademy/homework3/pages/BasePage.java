@@ -1,5 +1,7 @@
 package org.itacademy.homework3.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.driver.DriverManager;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +12,9 @@ import org.openqa.selenium.support.PageFactory;
 public class BasePage {
 
     private WebDriver driver;
+
+
+    private static final Logger LOGGER = LogManager.getLogger(BasePage.class);
 
     // конструктор пайджфэктори
     public BasePage(WebDriver driver) {

@@ -1,5 +1,7 @@
 package org.itacademy.homework3;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.pages.SearchPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
@@ -11,6 +13,9 @@ import java.time.Duration;
 import java.util.List;
 
 public class SearchTest extends BaseTest{
+
+
+    private static final Logger LOGGER = LogManager.getLogger(SearchTest.class);
 
     private SearchPage searchPage;
 
@@ -24,7 +29,7 @@ public class SearchTest extends BaseTest{
     @BeforeMethod
     public void beforemethod() {
 //        driver = DriverManager.getDriver(); // достаточно создать в бефо класс
-        System.out.println("\nBEFORE METHOD SEARCH get page searchPage " + Config.getPageSearch());
+        LOGGER.info("\nBEFORE METHOD SEARCH get page searchPage " + Config.getPageSearch());
         driver.get(Config.getPageSearch());
         searchPage = new SearchPage(driver); // обновляет браузер чтоб ввести в пустые поля
         // перед каждым запуском метода с новым элементом датапровайдера
@@ -34,12 +39,13 @@ public class SearchTest extends BaseTest{
     @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
     public void verifySearchTest(String menuItem) {
         searchPage.clickSearchButton();
-        System.out.println("SEARCH FIELD DISPLAYED: " + searchPage.getSearchField().isDisplayed());
+
+        LOGGER.info("SEARCH FIELD DISPLAYED: " + searchPage.getSearchField().isDisplayed());
         searchPage.getSearchField().sendKeys(menuItem); // метод которые возвращает само поле поиска
         searchPage.clickSearchStartButton();
         List<WebElement> items = searchPage.getSearchResultList();
 
-        System.out.println("\nFOUND ITEMS CONTAINS: " + menuItem);
+        LOGGER.info("\nFOUND ITEMS CONTAINS: " + menuItem);
         SoftAssert sa = new SoftAssert();
         sa.assertFalse(items.isEmpty(), "RESULT EMPTY");
         items.stream()

@@ -1,0 +1,40 @@
+File: 15:59 [main] INFO  org.itacademy.homework3.BaseTest -
+ BEFORE TEST get driver (in BaseTest)
+File: 15:59 [main] INFO  org.itacademy.homework3.BaseTest -
+ BEFORE CLASS get driver (in BaseTest)
+File: 15:59 [main] INFO  org.openqa.selenium.WebDriver -
+ MANAGER DRIVER ChromeDriver: chrome on linux (8f35126b4da5b0d701b5fa5bce4649b2)
+File: 15:59 [main] INFO  org.itacademy.homework3.SearchTest -
+ 
+BEFORE METHOD SEARCH get page searchPage https://donerking.by/
+File: 15:59 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK
+File: 15:59 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK DRIVER null
+File: 15:59 [main] INFO  org.itacademy.homework3.SearchTest -
+ SEARCH FIELD DISPLAYED: true
+File: 15:59 [main] INFO  org.itacademy.homework3.SearchTest -
+ 
+FOUND ITEMS CONTAINS: донер
+File: 15:59 [main] INFO  org.itacademy.homework3.BaseTest -
+ AFTER METHOD do nothing (in BaseTest)
+File: 15:59 [main] INFO  org.itacademy.homework3.SearchTest -
+ 
+BEFORE METHOD SEARCH get page searchPage https://donerking.by/
+File: 15:59 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK
+File: 15:59 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK DRIVER null
+File: 15:59 [main] INFO  org.itacademy.homework3.SearchTest -
+ SEARCH FIELD DISPLAYED: true
+File: 15:59 [main] INFO  org.itacademy.homework3.SearchTest -
+ 
+FOUND ITEMS CONTAINS: бургер
+File: 15:59 [main] INFO  org.itacademy.homework3.BaseTest -
+ AFTER METHOD do nothing (in BaseTest)
+File: 15:59 [main] INFO  org.itacademy.homework3.BaseTest -
+ AFTER CLASS do nothing (in BaseTest)
+File: 15:59 [main] INFO  org.itacademy.homework3.BaseTest -
+ AFTER TEST quit driver (in BaseTest)
+File: 15:59 [main] INFO  org.openqa.selenium.WebDriver -
+ MANAGER QUIT
