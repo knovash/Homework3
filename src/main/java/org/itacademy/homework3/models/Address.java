@@ -9,6 +9,17 @@ public class Address {
         this.building = building;
     }
 
+    public Address() {
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", building='" + building + '\'' +
+                '}';
+    }
+
     public String getStreet() {
         return street;
     }
