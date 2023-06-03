@@ -4,18 +4,16 @@ import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class SearchPage { // класс Page Object для взаимодействия с элементами страницы
+public class SearchPage extends BasePage { // класс Page Object для взаимодействия с элементами страницы
 
-    private WebDriver driver; // поле класса
+    private WebDriver driver;
 
-    // конструктор класса FirstPage. ему передаем параметр объект вебдрайвер
+    // конструктор класса наследуется от бэйспэйж
     public SearchPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+        super(driver);
     }
 
     // поля класса пэйж обжект это элементы страницы
@@ -41,6 +39,7 @@ public class SearchPage { // класс Page Object для взаимодейс�
 
     @FindBy(xpath = "//div[@class='col-xxs-12 col-xs-6 col-sm-4 col-md-4 col-lg-4 menuItemWrapper']//div[@class='imageData']//div[@class='h4']")
     List<WebElement> resultItems;
+
 
     // методы класса пэйж обжект это действия с элементы страницы
 

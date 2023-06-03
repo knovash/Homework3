@@ -20,7 +20,7 @@ public class DriverManager {
             driver = new ChromeDriver();
             System.out.println("MANAGER DRIVER " + driver);
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         }
         return driver;
     }

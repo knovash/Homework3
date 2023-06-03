@@ -1,7 +1,6 @@
 package org.itacademy.homework3;
 
 import org.itacademy.homework3.driver.DriverManager;
-import org.itacademy.homework3.pages.DeliveryPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -12,7 +11,14 @@ public class BaseTest {
     @BeforeTest
     public void beforetest() {
         System.out.println("BEFORE TEST get driver (in BaseTest)");
-        driver = DriverManager.getDriver();
+        // зачем создавать перед тестом если всегда выполниться в бефо класс?
+//        driver = DriverManager.getDriver(); // создает драйвер браузера для всех выполняемых тестов
+    }
+
+    @BeforeClass
+    public void beforeclass() {
+        System.out.println("BEFORE CLASS get driver (in BaseTest)");
+        driver = DriverManager.getDriver(); // в бефо тест недостаточно. тут нужен для запуска следущего теста в сьюте
     }
 
     @AfterMethod // выполниться после каждого элемента дата провайдера
