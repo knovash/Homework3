@@ -1,7 +1,6 @@
 .idea
 target
 *.iml
-*.json
 log
 /log/*
 /log

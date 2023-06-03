@@ -8,11 +8,20 @@ public class MenuItem {
         this.name = name;
     }
 
+    public MenuItem() { }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

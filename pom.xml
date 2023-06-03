@@ -55,6 +55,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.10.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -82,9 +87,9 @@
                 <version>${maven-compiler-plugin-version}</version>
                 <configuration>
 <!--                    версию Java наших исходников-->
-                    <source>${java-version}</source>
+                    <source>16</source>
 <!--                    версию Java-машины, под которую нужно скомпилировать классы-->
-                    <target>${java-version}</target>
+                    <target>16</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

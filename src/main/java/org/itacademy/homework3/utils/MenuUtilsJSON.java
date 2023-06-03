@@ -4,35 +4,34 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import org.itacademy.homework3.models.Address;
+import org.itacademy.homework3.models.Menu;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 
-public class UtilsJSON {
+public class MenuUtilsJSON {
 
-    public Address fileToObject(File file) {
+    public Menu fileToObject(File file) {
         System.out.println("\njson file to object\n");
         ObjectMapper mapper = new ObjectMapper();
-        Address object = null;
+        Menu object = null;
         try {
-            object = mapper.readValue(file, Address.class);
+            object = mapper.readValue(file, Menu.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return object;
     }
 
-    public void objectToFile(Address address, File file) {
+    public void objectToFile(Menu object, File file) {
         System.out.println("\nobject to json file\n");
         String jsonOut = null;
         try {
-            jsonOut = new ObjectMapper().writeValueAsString(address);
+            jsonOut = new ObjectMapper().writeValueAsString(object);
             System.out.println("JSON: " + jsonOut);
             ObjectMapper mapper = new ObjectMapper();
             ObjectWriter writerPP = mapper.writer(new DefaultPrettyPrinter());
-            writerPP.writeValue(file, address);
+            writerPP.writeValue(file, object);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
