@@ -7,32 +7,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DeliveryPage extends BasePage { // класс Page Object для взаимодействия с элементами страницы
+public class DeliveryPage extends BasePage {
 
     private WebDriver driver;
 
     private static final Logger LOGGER = LogManager.getLogger(DeliveryPage.class);
 
-    // конструктор класса наследуется от бэйспэйж
     public DeliveryPage(WebDriver driver) {
         super(driver);
     }
 
-    // поля класса пэйж обжект это элементы страницы
-
-    // поле город
     @FindBy(xpath = "//*[@id='city']")
     private WebElement fieldCity;
 
-    // поле улица
     @FindBy(xpath = "//*[@id='street']")
     private WebElement fieldStreet;
 
-    // поле дом
     @FindBy(xpath = "//*[@id='building']")
     private WebElement fieldBuilding;
 
-    // кнопка проверить
     @FindBy(xpath = "//*[@id='search-query']")
     private WebElement buttonCheck;
 
@@ -41,9 +34,6 @@ public class DeliveryPage extends BasePage { // класс Page Object для в
 
     @FindBy(xpath = "//div[@id='delivery_status' and @class='fail']")
     private WebElement statusFail;
-
-
-    // методы класса пэйж обжект это действия с элементы страницы
 
     public WebElement getFieldCity() {
         return fieldCity;

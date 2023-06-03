@@ -14,12 +14,9 @@ import java.util.List;
 
 public class SearchTest extends BaseTest{
 
-
     private static final Logger LOGGER = LogManager.getLogger(SearchTest.class);
-
     private SearchPage searchPage;
 
-    // дата провайдер - отдельный метод который возвращает матрицу обжектов
     @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
     public Object[][] menuItems() // имя метода дата провайдера
     {
@@ -28,20 +25,18 @@ public class SearchTest extends BaseTest{
 
     @BeforeMethod
     public void beforemethod() {
-//        driver = DriverManager.getDriver(); // достаточно создать в бефо класс
-        LOGGER.info("\nBEFORE METHOD SEARCH get page searchPage " + Config.getPageSearch());
+        LOGGER.info("BEFORE METHOD get page " + Config.getPageSearch());
         driver.get(Config.getPageSearch());
-        searchPage = new SearchPage(driver); // обновляет браузер чтоб ввести в пустые поля
-        // перед каждым запуском метода с новым элементом датапровайдера
+        searchPage = new SearchPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
     public void verifySearchTest(String menuItem) {
+        LOGGER.info("TEST SEARCH" + driver);
         searchPage.clickSearchButton();
-
         LOGGER.info("SEARCH FIELD DISPLAYED: " + searchPage.getSearchField().isDisplayed());
-        searchPage.getSearchField().sendKeys(menuItem); // метод которые возвращает само поле поиска
+        searchPage.getSearchField().sendKeys(menuItem);
         searchPage.clickSearchStartButton();
         List<WebElement> items = searchPage.getSearchResultList();
 

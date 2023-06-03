@@ -12,17 +12,12 @@ import org.openqa.selenium.support.PageFactory;
 public class BasePage {
 
     private WebDriver driver;
-
-
     private static final Logger LOGGER = LogManager.getLogger(BasePage.class);
 
-    // конструктор пайджфэктори
     public BasePage(WebDriver driver) {
         PageFactory.initElements(DriverManager.getDriver(), this);
         this.driver = driver;
     }
-
-    // элементы top header общие для всего сайта
 
     @FindBy(xpath = "//*[@id='mainheader']//div[@class='hassubmenu']/*[contains(@href,'menu')]")
     private WebElement topHeaderMenu;

@@ -8,38 +8,33 @@ import org.testng.annotations.*;
 
 public class BaseTest {
 
-
     private static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
-
     protected WebDriver driver;
 
     @BeforeTest
     public void beforetest() {
-        LOGGER.info("BEFORE TEST get driver (in BaseTest)");
-        // зачем создавать перед тестом если всегда выполниться в бефо класс?
-//        driver = DriverManager.getDriver(); // создает драйвер браузера для всех выполняемых тестов
+        LOGGER.info("BEFORE TEST do nothing");
     }
 
     @BeforeClass
     public void beforeclass() {
-        LOGGER.info("BEFORE CLASS get driver (in BaseTest)");
-        driver = DriverManager.getDriver(); // в бефо тест недостаточно. тут нужен для запуска следущего теста в сьюте
+        LOGGER.info("BEFORE CLASS get driver");
+        driver = DriverManager.getDriver();
     }
 
-    @AfterMethod // выполниться после каждого элемента дата провайдера
+    @AfterMethod
     public void aftermethod() {
-        LOGGER.info("AFTER METHOD do nothing (in BaseTest)");
+        LOGGER.info("AFTER METHOD do nothing");
     }
 
     @AfterClass
     public void afterclass() {
-        LOGGER.info("AFTER CLASS do nothing (in BaseTest)");
+        LOGGER.info("AFTER CLASS do nothing");
     }
 
     @AfterTest
     public void aftertest() {
-        LOGGER.info("AFTER TEST quit driver (in BaseTest)");
+        LOGGER.info("AFTER TEST quit driver");
         DriverManager.quitDriver();
     }
-
 }

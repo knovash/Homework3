@@ -13,34 +13,29 @@ import java.time.Duration;
 
 public class DeliveryTest extends BaseTest {
 
-
     private static final Logger LOGGER = LogManager.getLogger(DeliveryTest.class);
-
     private DeliveryPage deliveryPage;
 
     @BeforeMethod
     public void beforemethod() {
-//        driver = DriverManager.getDriver(); // достаточно создать в бефо класс
-        LOGGER.info("\nBEFORE METHOD DELIVERY get page deliveryPage " + Config.getPageDelivery());
+        LOGGER.info("BEFORE METHOD get page " + Config.getPageDelivery());
         driver.get(Config.getPageDelivery());
-        deliveryPage = new DeliveryPage(driver); // обновляет браузер чтоб ввести в пустые поля
-        // перед каждым запуском метода с новым элементом датапровайдера
+        deliveryPage = new DeliveryPage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @DataProvider(name = "addresses", parallel = false) // если нет имени то определяется по имени метода
-    public Object[][] addresses() // имя метода дата провайдера
+    @DataProvider(name = "addresses", parallel = false)
+    public Object[][] addresses()
     {
         return new Object[][]{{"Кульман", "15"}, {"Богдановича", "10"}};
     }
 
     @Test(testName = "CheckDelivery", dataProvider = "addresses", description = "Verifys delivery addressses", enabled = true)
     public void verifyDeliveryTest(String street, String building) {
-        LOGGER.info("\nTEST DELIVERY");
+        LOGGER.info("TEST DELIVERY" + driver);
         deliveryPage.getFieldStreet().sendKeys(street);
         deliveryPage.getFieldBuilding().sendKeys(building);
         deliveryPage.clickButtonCheck();
-
         Boolean status = false;
         try {
             status = deliveryPage.getStatusSuccess().isDisplayed();
@@ -54,7 +49,7 @@ public class DeliveryTest extends BaseTest {
 
     @Test(testName = "NotTest", description = "Verifys nothing", enabled = true)
     public void verifyNothing() {
-        LOGGER.info("\nTEST NOTHING");
+        LOGGER.info("TEST NOTHING");
         deliveryPage.topHeaderAddressesClick();
         WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
         deliveryPage.topHeaderDeliveryClick();
@@ -63,4 +58,3 @@ public class DeliveryTest extends BaseTest {
         Assert.assertTrue(true, "NOT TRUE");
     }
 }
-
