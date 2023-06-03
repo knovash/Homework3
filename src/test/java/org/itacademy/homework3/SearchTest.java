@@ -2,6 +2,8 @@ package org.itacademy.homework3;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.itacademy.homework3.models.Address;
+import org.itacademy.homework3.models.MenuItem;
 import org.itacademy.homework3.pages.SearchPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
@@ -12,7 +14,7 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 import java.util.List;
 
-public class SearchTest extends BaseTest{
+public class SearchTest extends BaseTest {
 
     private static final Logger LOGGER = LogManager.getLogger(SearchTest.class);
     private SearchPage searchPage;
@@ -20,7 +22,10 @@ public class SearchTest extends BaseTest{
     @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
     public Object[][] menuItems() // имя метода дата провайдера
     {
-        return new Object[][]{{"донер"}, {"бургер"}};
+        return new Object[][]{
+                {new MenuItem("донер")},
+                {new MenuItem("бургер")}
+        };
     }
 
     @BeforeMethod
@@ -32,11 +37,11 @@ public class SearchTest extends BaseTest{
     }
 
     @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
-    public void verifySearchTest(String menuItem) {
+    public void verifySearchTest(MenuItem menuItem) {
         LOGGER.info("TEST SEARCH" + driver);
         searchPage.clickSearchButton();
         LOGGER.info("SEARCH FIELD DISPLAYED: " + searchPage.getSearchField().isDisplayed());
-        searchPage.getSearchField().sendKeys(menuItem);
+        searchPage.getSearchField().sendKeys(menuItem.getName());
         searchPage.clickSearchStartButton();
         List<WebElement> items = searchPage.getSearchResultList();
 
@@ -46,7 +51,7 @@ public class SearchTest extends BaseTest{
         items.stream()
                 .map(w -> w.getText().toLowerCase()) // из каждого найденного элемнта получаем текст
                 // проверяем что текст элемента содержит искомый текст
-                .peek(t -> sa.assertTrue(t.contains(menuItem), "ЭТО НЕ " + menuItem + " " + t))
+                .peek(t -> sa.assertTrue(t.contains(menuItem.getName()), "ЭТО НЕ " + menuItem.getName() + " " + t))
                 .forEach(System.out::println);
         sa.assertAll();
         WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
