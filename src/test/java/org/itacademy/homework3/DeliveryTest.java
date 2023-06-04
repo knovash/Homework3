@@ -6,7 +6,6 @@ import org.itacademy.homework3.models.Address;
 import org.itacademy.homework3.pages.DeliveryPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -22,7 +21,7 @@ public class DeliveryTest extends BaseTest {
         LOGGER.info("BEFORE METHOD get page " + Config.getPageDelivery());
         driver.get(Config.getPageDelivery());
         deliveryPage = new DeliveryPage(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @DataProvider(name = "addresses", parallel = false)
@@ -36,16 +35,10 @@ public class DeliveryTest extends BaseTest {
     @Test(testName = "CheckDelivery", dataProvider = "addresses", description = "Verifys delivery addressses", enabled = true)
     public void verifyDeliveryTest(Address address) {
         LOGGER.info("TEST DELIVERY" + driver);
-        deliveryPage.getFieldStreet().sendKeys(address.getStreet());
-        deliveryPage.getFieldBuilding().sendKeys(address.getBuilding());
+        deliveryPage.enterFieldStreet(address.getStreet());
+        deliveryPage.enterFieldBuilding(address.getBuilding());
         deliveryPage.clickButtonCheck();
-        Boolean status = false;
-        try {
-            status = deliveryPage.getStatusSuccess().isDisplayed();
-        } catch (NoSuchElementException e) {
-            LOGGER.info("NO ELEMENT");
-        }
-        LOGGER.info("STATUS " + status);
+        Boolean status = deliveryPage.getStatus();
         Assert.assertTrue(status, "NOT SUCCESS");
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
@@ -57,7 +50,7 @@ public class DeliveryTest extends BaseTest {
         WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
         deliveryPage.topHeaderDeliveryClick();
         WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
-        deliveryPage.getFieldStreet().sendKeys("street");
+        deliveryPage.enterFieldBuilding("street");
         Assert.assertTrue(true, "NOT TRUE");
     }
 }

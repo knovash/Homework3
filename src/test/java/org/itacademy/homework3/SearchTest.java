@@ -7,16 +7,22 @@ import org.itacademy.homework3.models.MenuItem;
 import org.itacademy.homework3.pages.SearchPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.GetData;
+import org.itacademy.homework3.utils.WaitUtils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SearchTest extends BaseTest {
 
     private static final Logger LOGGER = LogManager.getLogger(SearchTest.class);
     private SearchPage searchPage;
+    protected WebDriver driver;
 
     @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
     public Object[][] menuItems() // имя метода дата провайдера
@@ -43,20 +49,19 @@ public class SearchTest extends BaseTest {
     public void verifySearchTest(MenuItem menuItem) {
         LOGGER.info("TEST SEARCH" + driver);
         searchPage.clickSearchButton();
-        LOGGER.info("SEARCH FIELD DISPLAYED: " + searchPage.getSearchField().isDisplayed());
-        searchPage.getSearchField().sendKeys(menuItem.getName());
+        searchPage.enterSearchFieldText(menuItem.getName());
         searchPage.clickSearchStartButton();
-//        List<WebElement> items = searchPage.getSearchResultList();
-//
-//        LOGGER.info("\nFOUND ITEMS CONTAINS: " + menuItem);
-//        SoftAssert sa = new SoftAssert();
-//        sa.assertFalse(items.isEmpty(), "RESULT EMPTY");
-//        items.stream()
-//                .map(w -> w.getText().toLowerCase()) // из каждого найденного элемнта получаем текст
-//                // проверяем что текст элемента содержит искомый текст
-//                .peek(t -> sa.assertTrue(t.contains(menuItem.getName()), "ЭТО НЕ " + menuItem.getName() + " " + t))
-//                .forEach(System.out::println);
-//        sa.assertAll();
+        List<WebElement> items = searchPage.getSearchResultList();
+
+        LOGGER.info("\nFOUND ITEMS CONTAINS: " + menuItem);
+        SoftAssert sa = new SoftAssert();
+        sa.assertFalse(items.isEmpty(), "RESULT EMPTY");
+        items.stream()
+                .map(w -> w.getText().toLowerCase())
+                .peek(t -> sa.assertTrue(t.contains(menuItem.getName()), "ЭТО НЕ " + menuItem.getName() + " " + t))
+                .forEach(System.out::println);
+        sa.assertAll();
+        searchPage.waitfor();
 //        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
     }
 }

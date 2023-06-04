@@ -40,12 +40,17 @@ public class SearchPage extends BasePage {
         searchButton.click();
     }
 
-    public WebElement getSearchField() {
-        return searchField;
+    public void enterSearchFieldText(String text) {
+        LOGGER.info("SEARCH FIELD DISPLAYED: " + searchField.isDisplayed());
+        searchField.sendKeys(text);
     }
 
     public void clickSearchStartButton() {
         searchStartButton.click();
+    }
+
+    public void waitfor() {
+        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
     }
 
     public List<WebElement> getSearchResultList() {
