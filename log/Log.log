@@ -1,28 +1,42 @@
-File: 21:27 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
  BEFORE TEST do nothing
-File: 21:27 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
  BEFORE CLASS get driver
-File: 21:27 [main] INFO  org.itacademy.homework3.driver.DriverManager -
- NEW CHROMEDRIVER: ChromeDriver: chrome on linux (0624a46d7b4efdf2e73689a204de87b7)
-File: 21:27 [main] INFO  org.itacademy.homework3.DeliveryTest -
- BEFORE METHOD get page https://donerking.by/delivery
-File: 21:27 [main] INFO  org.itacademy.homework3.DeliveryTest -
- TEST DELIVERYChromeDriver: chrome on linux (0624a46d7b4efdf2e73689a204de87b7)
-File: 21:27 [main] INFO  org.itacademy.homework3.pages.DeliveryPage -
- STATUS true
-File: 21:27 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 21:58 [main] INFO  org.itacademy.homework3.driver.DriverManager -
+ NEW CHROMEDRIVER: ChromeDriver: chrome on linux (7c3b8fd39114d8bd56af071bbe18cccb)
+File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+ BEFORE METHOD get page https://donerking.by/
+File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+ TEST SEARCHChromeDriver: chrome on linux (7c3b8fd39114d8bd56af071bbe18cccb)
+File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK
+File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK DRIVER null
+File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ SEARCH FIELD DISPLAYED: true
+File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+ 
+FOUND ITEMS CONTAINS: MenuItem{name='бургер'}
+File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER METHOD do nothing
-File: 21:27 [main] INFO  org.itacademy.homework3.DeliveryTest -
- BEFORE METHOD get page https://donerking.by/delivery
-File: 21:27 [main] INFO  org.itacademy.homework3.DeliveryTest -
- TEST DELIVERYChromeDriver: chrome on linux (0624a46d7b4efdf2e73689a204de87b7)
-File: 21:27 [main] INFO  org.itacademy.homework3.pages.DeliveryPage -
- STATUS true
-File: 21:27 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+ BEFORE METHOD get page https://donerking.by/
+File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+ TEST SEARCHChromeDriver: chrome on linux (7c3b8fd39114d8bd56af071bbe18cccb)
+File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK
+File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ CLICK DRIVER null
+File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+ SEARCH FIELD DISPLAYED: true
+File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+ 
+FOUND ITEMS CONTAINS: MenuItem{name='донер'}
+File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER METHOD do nothing
-File: 21:27 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER CLASS do nothing
-File: 21:27 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER TEST quit driver
-File: 21:27 [main] INFO  org.itacademy.homework3.driver.DriverManager -
+File: 21:58 [main] INFO  org.itacademy.homework3.driver.DriverManager -
  DRIVER QUIT

@@ -22,7 +22,6 @@ public class SearchTest extends BaseTest {
 
     private static final Logger LOGGER = LogManager.getLogger(SearchTest.class);
     private SearchPage searchPage;
-    protected WebDriver driver;
 
     @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
     public Object[][] menuItems() // имя метода дата провайдера
