@@ -1,42 +1,42 @@
-File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.BaseTest -
  BEFORE TEST do nothing
-File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.BaseTest -
  BEFORE CLASS get driver
-File: 21:58 [main] INFO  org.itacademy.homework3.driver.DriverManager -
- NEW CHROMEDRIVER: ChromeDriver: chrome on linux (7c3b8fd39114d8bd56af071bbe18cccb)
-File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.driver.DriverManager -
+ NEW CHROMEDRIVER: ChromeDriver: chrome on linux (f4e9f263f835ae05a21a1a3e7ee82986)
+File: 23:04 [main] INFO  org.itacademy.homework3.SearchLombokTest -
  BEFORE METHOD get page https://donerking.by/
-File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
- TEST SEARCHChromeDriver: chrome on linux (7c3b8fd39114d8bd56af071bbe18cccb)
-File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+File: 23:04 [main] INFO  org.itacademy.homework3.SearchLombokTest -
+ TEST SEARCHChromeDriver: chrome on linux (f4e9f263f835ae05a21a1a3e7ee82986)
+File: 23:04 [main] INFO  org.itacademy.homework3.pages.SearchPage -
  CLICK
-File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+File: 23:04 [main] INFO  org.itacademy.homework3.pages.SearchPage -
  CLICK DRIVER null
-File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+File: 23:04 [main] INFO  org.itacademy.homework3.pages.SearchPage -
  SEARCH FIELD DISPLAYED: true
-File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.SearchLombokTest -
  
-FOUND ITEMS CONTAINS: MenuItem{name='бургер'}
-File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
+FOUND ITEMS CONTAINS: ItemLombok(name=бургер)
+File: 23:04 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER METHOD do nothing
-File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.SearchLombokTest -
  BEFORE METHOD get page https://donerking.by/
-File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
- TEST SEARCHChromeDriver: chrome on linux (7c3b8fd39114d8bd56af071bbe18cccb)
-File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+File: 23:04 [main] INFO  org.itacademy.homework3.SearchLombokTest -
+ TEST SEARCHChromeDriver: chrome on linux (f4e9f263f835ae05a21a1a3e7ee82986)
+File: 23:04 [main] INFO  org.itacademy.homework3.pages.SearchPage -
  CLICK
-File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+File: 23:04 [main] INFO  org.itacademy.homework3.pages.SearchPage -
  CLICK DRIVER null
-File: 21:58 [main] INFO  org.itacademy.homework3.pages.SearchPage -
+File: 23:04 [main] INFO  org.itacademy.homework3.pages.SearchPage -
  SEARCH FIELD DISPLAYED: true
-File: 21:58 [main] INFO  org.itacademy.homework3.SearchTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.SearchLombokTest -
  
-FOUND ITEMS CONTAINS: MenuItem{name='донер'}
-File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
+FOUND ITEMS CONTAINS: ItemLombok(name=донер)
+File: 23:04 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER METHOD do nothing
-File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER CLASS do nothing
-File: 21:58 [main] INFO  org.itacademy.homework3.BaseTest -
+File: 23:04 [main] INFO  org.itacademy.homework3.BaseTest -
  AFTER TEST quit driver
-File: 21:58 [main] INFO  org.itacademy.homework3.driver.DriverManager -
+File: 23:04 [main] INFO  org.itacademy.homework3.driver.DriverManager -
  DRIVER QUIT

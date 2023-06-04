@@ -2,13 +2,13 @@ package org.itacademy.homework3;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.itacademy.homework3.models.ItemLombok;
 import org.itacademy.homework3.models.Menu;
 import org.itacademy.homework3.models.MenuItem;
 import org.itacademy.homework3.pages.SearchPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.GetData;
-import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.WebDriver;
+import org.itacademy.homework3.utils.JsonReader;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -18,24 +18,25 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 import java.util.List;
 
-public class SearchTest extends BaseTest {
+public class SearchLombokTest extends BaseTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(SearchTest.class);
+    private static final Logger LOGGER = LogManager.getLogger(SearchLombokTest.class);
     private SearchPage searchPage;
 
-    @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
-    public Object[][] menuItems() // имя метода дата провайдера
-    {
-        Menu menu = GetData.get();
-        int menuSize = menu.getItems().size();
-        Object[][] arr = new Object[menuSize][1];
-        for (int i=0; i< menuSize; i++){
-            arr[i][0] = menu.getItems().get(i);
-            System.out.println("ARR " + arr[i][0]);
-        }
-
-        return arr;
-    }
+// дата провайдер переносится в JsonReader класс
+//    @DataProvider(name = "menuItems", parallel = false) // если нет имени то определяется по имени метода
+//    public Object[][] menuItems() // имя метода дата провайдера
+//    {
+//        Menu menu = GetData.get();
+//        int menuSize = menu.getItems().size();
+//        Object[][] arr = new Object[menuSize][1];
+//        for (int i=0; i< menuSize; i++){
+//            arr[i][0] = menu.getItems().get(i);
+//            System.out.println("ARR " + arr[i][0]);
+//        }
+//
+//        return arr;
+//    }
 
     @BeforeMethod
     public void beforemethod() {
@@ -45,8 +46,12 @@ public class SearchTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
-    public void verifySearchTest(MenuItem menuItem) {
+
+//    @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
+// добавлен  dataProviderClass = JsonReader.class
+    @Test(testName = "CheckSearch", dataProvider = "menuItems",  dataProviderClass = JsonReader.class, description = "Verifys that search box works", enabled = true)
+    // MenuItem класс заменен на ItemLombok
+    public void verifySearchTest(ItemLombok menuItem) {
         LOGGER.info("TEST SEARCH" + driver);
         searchPage.clickSearchButton();
         searchPage.enterSearchFieldText(menuItem.getName());
