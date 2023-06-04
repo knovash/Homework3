@@ -28,7 +28,7 @@ public class DeliveryTest extends BaseTest {
     public Object[][] addresses() {
         return new Object[][]{
                 {new Address("Кульман", "15")},
-                {new Address("Богдановича", "10")}
+                {new Address("Богданваываыовича", "10")}
         };
     }
 
