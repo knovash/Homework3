@@ -39,16 +39,20 @@ public class DeliveryPage extends BasePage {
     @FindBy(xpath = "//div[@id='delivery_status' and @class='fail']")
     private WebElement statusFail;
 
-    public void enterFieldStreet(String street) {
-        fieldStreet.sendKeys(street);;
+
+    public DeliveryPage enterFieldStreet(String street) {
+        fieldStreet.sendKeys(street);
+        return this;
     }
-    public void enterFieldBuilding(String building) {
-        fieldBuilding.sendKeys(building);;
+    public DeliveryPage enterFieldBuilding(String building) {
+        fieldBuilding.sendKeys(building);
+        return this;
     }
 
-    public void clickButtonCheck() {
+    public DeliveryPage clickButtonCheck() {
         WaitUtils.waitForVisibility(buttonCheck);
         buttonCheck.click();
+        return this;
     }
 
     public Boolean getStatus() {

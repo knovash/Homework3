@@ -28,17 +28,19 @@ public class DeliveryTest extends BaseTest {
     public Object[][] addresses() {
         return new Object[][]{
                 {new Address("Кульман", "15")},
-                {new Address("Богданваываыовича", "10")}
+                {new Address("Богдановича", "10")}
         };
     }
 
     @Test(testName = "CheckDelivery", dataProvider = "addresses", description = "Verifys delivery addressses", enabled = true)
     public void verifyDeliveryTest(Address address) {
         LOGGER.info("TEST DELIVERY" + driver);
-        deliveryPage.enterFieldStreet(address.getStreet());
-        deliveryPage.enterFieldBuilding(address.getBuilding());
-        deliveryPage.clickButtonCheck();
-        Boolean status = deliveryPage.getStatus();
+
+        Boolean status = deliveryPage
+                .enterFieldStreet(address.getStreet())
+                .enterFieldBuilding(address.getBuilding())
+                .clickButtonCheck().getStatus();
+
         Assert.assertTrue(status, "NOT SUCCESS");
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
