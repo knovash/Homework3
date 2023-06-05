@@ -1,44 +1,18 @@
-File: 16:20 [main] INFO  org.itacademy.homework3.BaseTest -
- BEFORE TEST do nothing
-File: 16:20 [main] INFO  org.itacademy.homework3.BaseTest -
- BEFORE CLASS get driver
-File: 16:20 [main] INFO  org.itacademy.homework3.driver.DriverManager -
- NEW CHROMEDRIVER: ChromeDriver: chrome on linux (c8b1e0f41b18aa321ad6452016022262)
-File: 16:20 [main] INFO  org.itacademy.homework3.utils.Converter -
- 
-json file to object
-
-File: 16:20 [main] INFO  org.itacademy.homework3.utils.DataProviderJSON -
- ARR MenuItem(name=бургер)
-File: 16:20 [main] INFO  org.itacademy.homework3.utils.DataProviderJSON -
- ARR MenuItem(name=донер)
-File: 16:20 [main] INFO  org.itacademy.homework3.SearchTest -
- BEFORE METHOD get page https://donerking.by/
-File: 16:22 [main] INFO  org.itacademy.homework3.SearchTest -
- TEST SEARCH ChromeDriver: chrome on linux (c8b1e0f41b18aa321ad6452016022262)
-File: 16:22 [main] INFO  org.itacademy.homework3.pages.SearchPage -
- CLICK SEARCH BUTTON
-File: 16:22 [main] INFO  org.itacademy.homework3.pages.SearchPage -
- SEARCH FIELD DISPLAYED: true
-File: 16:22 [main] INFO  org.itacademy.homework3.pages.SearchPage -
- CLICK SEARCH START
-File: 16:22 [main] INFO  org.itacademy.homework3.BaseTest -
- AFTER METHOD do nothing
-File: 16:22 [main] INFO  org.itacademy.homework3.SearchTest -
- BEFORE METHOD get page https://donerking.by/
-File: 16:23 [main] INFO  org.itacademy.homework3.SearchTest -
- TEST SEARCH ChromeDriver: chrome on linux (c8b1e0f41b18aa321ad6452016022262)
-File: 16:23 [main] INFO  org.itacademy.homework3.pages.SearchPage -
- CLICK SEARCH BUTTON
-File: 16:23 [main] INFO  org.itacademy.homework3.pages.SearchPage -
- SEARCH FIELD DISPLAYED: true
-File: 16:23 [main] INFO  org.itacademy.homework3.pages.SearchPage -
- CLICK SEARCH START
-File: 16:23 [main] INFO  org.itacademy.homework3.BaseTest -
- AFTER METHOD do nothing
-File: 16:23 [main] INFO  org.itacademy.homework3.BaseTest -
- AFTER CLASS do nothing
-File: 16:23 [main] INFO  org.itacademy.homework3.BaseTest -
- AFTER TEST quit driver
-File: 16:23 [main] INFO  org.itacademy.homework3.driver.DriverManager -
- DRIVER QUIT
+[org.itacademy.homework3.BaseTest] - BEFORE TEST do nothing
+[org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
+[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (c90f2098e116df30ffd27a195145abf8)
+[org.itacademy.homework3.utils.DataProviderDelivery] - ARR Address(street=Кульман, building=15)
+[org.itacademy.homework3.utils.DataProviderDelivery] - ARR Address(street=Богдановича, building=10)
+[org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (c90f2098e116df30ffd27a195145abf8)
+[org.itacademy.homework3.pages.DeliveryPage] - SUCC Проверить адрес доставки По даному адресу доставка возможна
+[org.itacademy.homework3.pages.DeliveryPage] - STATUS true
+[org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
+[org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (c90f2098e116df30ffd27a195145abf8)
+[org.itacademy.homework3.pages.DeliveryPage] - SUCC Проверить адрес доставки По даному адресу доставка возможна
+[org.itacademy.homework3.pages.DeliveryPage] - STATUS true
+[org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
+[org.itacademy.homework3.BaseTest] - AFTER CLASS do nothing
+[org.itacademy.homework3.BaseTest] - AFTER TEST quit driver
+[org.itacademy.homework3.driver.DriverManager] - DRIVER QUIT

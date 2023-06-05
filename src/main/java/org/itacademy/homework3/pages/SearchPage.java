@@ -58,7 +58,7 @@ public class SearchPage extends BasePage {
             resultItems.stream()
                     .map(w -> w.getText().toLowerCase())
                     .peek(t -> sa.assertTrue(t.contains(item), "ЭТО НЕ " + item + " " + t))
-                    .forEach(System.out::println);
+                    .forEach(x -> LOGGER.info(x));
             sa.assertAll();
             result = true;
         } catch (AssertionError error) {

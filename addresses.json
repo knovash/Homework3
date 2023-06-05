@@ -1,0 +1,9 @@
+{
+  "addresses" : [ {
+    "street" : "Кульман",
+    "building" : "15"
+  }, {
+    "street" : "Богдановича",
+    "building" : "10"
+  } ]
+}

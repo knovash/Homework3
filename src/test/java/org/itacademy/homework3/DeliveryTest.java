@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.models.Address;
 import org.itacademy.homework3.pages.DeliveryPage;
 import org.itacademy.homework3.utils.Config;
+import org.itacademy.homework3.utils.DataProviderDelivery;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -26,15 +26,18 @@ public class DeliveryTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @DataProvider(name = "addresses", parallel = false)
-    public Object[][] addresses() {
-        return new Object[][]{
-                {new Address("Кульман", "15")},
-                {new Address("Богдановича", "10")}
-        };
-    }
+//    @DataProvider(name = "addresses", parallel = false)
+//    public Object[][] addresses() {
+//        return new Object[][]{
+//                {new Address("Кульман", "15")},
+//                {new Address("Богдановича", "10")}
+//        };
+//    }
 
-    @Test(testName = "CheckDelivery", dataProvider = "addresses", description = "Verifys delivery addressses", enabled = true)
+    @Test(testName = "CheckDelivery",
+            dataProvider = "addresses",
+            dataProviderClass = DataProviderDelivery.class,
+            description = "Verifys delivery addressses")
     public void verifyDeliveryTest(Address address) {
         LOGGER.info("TEST DELIVERY" + driver);
         deliveryPage.enterFieldStreet(address.getStreet());
