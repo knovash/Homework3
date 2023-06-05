@@ -1,5 +1,7 @@
 package org.itacademy.homework3;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.models.Menu;
 import org.itacademy.homework3.models.MenuItem;
 import org.itacademy.homework3.utils.MenuUtilsJSON;
@@ -12,6 +14,8 @@ import java.util.Objects;
 
 public class Main {
 
+    private static final Logger LOGGER = LogManager.getLogger(Main.class);
+
     /**
      * Homework
      * drivermanager singltone
@@ -19,9 +23,10 @@ public class Main {
      */
     public static void main(String[] args) {
 
-//        System.out.println(Faker.instance(new Locale("ru")).name().name());
+
+//        LOGGER.info(Faker.instance(new Locale("ru")).name().name());
 //        Faker faker = new Faker(new Locale("ru"));
-//        System.out.println(faker.name().name());
+//        LOGGER.info(faker.name().name());
 
         URL resourceItems = Main.class.getClassLoader().getResource("data/items.json");
         File fileItems = new File(Objects.requireNonNull(resourceItems).getFile());
@@ -40,7 +45,7 @@ public class Main {
 
 // JSON file to object
         Menu menuNew = menuUtilsJSON.fileToObject(fileItems);
-        System.out.println(menuNew);
+        LOGGER.info(menuNew);
 
 
     }

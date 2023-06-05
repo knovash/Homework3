@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.models.Menu;
 
 import java.io.File;
@@ -11,8 +13,10 @@ import java.io.IOException;
 
 public class MenuUtilsJSON {
 
+    private static final Logger LOGGER = LogManager.getLogger(MenuUtilsJSON.class);
+
     public Menu fileToObject(File file) {
-        System.out.println("\njson file to object\n");
+        LOGGER.info("\njson file to object\n");
         ObjectMapper mapper = new ObjectMapper();
         Menu object = null;
         try {
@@ -24,11 +28,11 @@ public class MenuUtilsJSON {
     }
 
     public void objectToFile(Menu object, File file) {
-        System.out.println("\nobject to json file\n");
+        LOGGER.info("\nobject to json file\n");
         String jsonOut = null;
         try {
             jsonOut = new ObjectMapper().writeValueAsString(object);
-            System.out.println("JSON: " + jsonOut);
+            LOGGER.info("JSON: " + jsonOut);
             ObjectMapper mapper = new ObjectMapper();
             ObjectWriter writerPP = mapper.writer(new DefaultPrettyPrinter());
             writerPP.writeValue(file, object);
@@ -37,6 +41,6 @@ public class MenuUtilsJSON {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("JSON saved to file \n");
+        LOGGER.info("JSON saved to file \n");
     }
 }

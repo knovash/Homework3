@@ -6,6 +6,7 @@ import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -34,8 +35,7 @@ public class SearchPage extends BasePage {
     List<WebElement> resultItems;
 
     public void clickSearchButton() {
-        LOGGER.info("CLICK");
-        LOGGER.info("CLICK DRIVER " + driver);
+        LOGGER.info("CLICK SEARCH BUTTON");
         WaitUtils.waitForVisibility(searchButton);
         searchButton.click();
     }
@@ -46,14 +46,25 @@ public class SearchPage extends BasePage {
     }
 
     public void clickSearchStartButton() {
+        LOGGER.info("CLICK SEARCH START");
         searchStartButton.click();
     }
 
-    public void waitfor() {
-        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
-    }
-
-    public List<WebElement> getSearchResultList() {
-        return resultItems;
+    public Boolean getAssertResult(String item) {
+        SoftAssert sa = new SoftAssert();
+        sa.assertFalse(resultItems.isEmpty(), "RESULT EMPTY");
+        Boolean result = false;
+        try {
+            resultItems.stream()
+                    .map(w -> w.getText().toLowerCase())
+                    .peek(t -> sa.assertTrue(t.contains(item), "ЭТО НЕ " + item + " " + t))
+                    .forEach(System.out::println);
+            sa.assertAll();
+            result = true;
+        } catch (AssertionError error) {
+            result = false;
+            LOGGER.info("ERRORR ASSERT");
+        }
+        return result;
     }
 }

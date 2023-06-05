@@ -2,6 +2,8 @@ package org.itacademy.homework3.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.models.ItemLombok;
 import org.itacademy.homework3.models.Menu;
 import org.itacademy.homework3.models.MenuLombok;
@@ -13,6 +15,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class JsonReader {
+
+    private static final Logger LOGGER = LogManager.getLogger(JsonReader.class);
 
     @DataProvider(name = "menuItems")
     public Object[][] menuItems() // имя метода дата провайдера
@@ -30,7 +34,7 @@ public class JsonReader {
         Object[][] arr = new Object[menuSize][1];
         for (int i=0; i< menuSize; i++){
             arr[i][0] = menu.getItems().get(i);
-            System.out.println("ARR " + arr[i][0]);
+            LOGGER.info("ARR " + arr[i][0]);
         }
         return arr;
     }

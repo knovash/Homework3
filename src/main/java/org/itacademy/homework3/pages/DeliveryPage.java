@@ -52,11 +52,11 @@ public class DeliveryPage extends BasePage {
     }
 
     public Boolean getStatus() {
-//        System.out.println("CLASS NAME " + deliveryPage.getStatus().getAttribute("class"));
+//        LOGGER.info("CLASS NAME " + deliveryPage.getStatus().getAttribute("class"));
         Boolean status = false;
         try {
             status = statusSuccess.isDisplayed();
-            System.out.println("SUCC " + statusSuccess.getText());
+            LOGGER.info("SUCC " + statusSuccess.getText());
         } catch (NoSuchElementException e) {
             LOGGER.info("NO ELEMENT");
         }

@@ -38,8 +38,7 @@ public class DeliveryTest extends BaseTest {
         deliveryPage.enterFieldStreet(address.getStreet());
         deliveryPage.enterFieldBuilding(address.getBuilding());
         deliveryPage.clickButtonCheck();
-        Boolean status = deliveryPage.getStatus();
-        Assert.assertTrue(status, "NOT SUCCESS");
+        Assert.assertTrue(deliveryPage.getStatus(), "NOT SUCCESS");
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 
@@ -47,9 +46,7 @@ public class DeliveryTest extends BaseTest {
     public void verifyNothing() {
         LOGGER.info("TEST NOTHING");
         deliveryPage.topHeaderAddressesClick();
-        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
         deliveryPage.topHeaderDeliveryClick();
-        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
         deliveryPage.enterFieldBuilding("street");
         Assert.assertTrue(true, "NOT TRUE");
     }

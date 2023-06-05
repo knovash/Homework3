@@ -36,10 +36,12 @@ public class BasePage {
     public void topHeaderAddressesClick() {
         WaitUtils.waitForVisibility(topHeaderAddresses);
         topHeaderAddresses.click();
+        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
     }
 
     public void topHeaderDeliveryClick() {
         WaitUtils.waitForVisibility(topHeaderDelivery);
         topHeaderDelivery.click();
+        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
     }
 }

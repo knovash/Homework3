@@ -8,12 +8,11 @@ import org.itacademy.homework3.pages.SearchPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.GetData;
 import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -31,9 +30,8 @@ public class SearchTest extends BaseTest {
         Object[][] arr = new Object[menuSize][1];
         for (int i=0; i< menuSize; i++){
             arr[i][0] = menu.getItems().get(i);
-            System.out.println("ARR " + arr[i][0]);
+            LOGGER.info("ARR " + arr[i][0]);
         }
-
         return arr;
     }
 
@@ -47,21 +45,11 @@ public class SearchTest extends BaseTest {
 
     @Test(testName = "CheckSearch", dataProvider = "menuItems", description = "Verifys that search box works", enabled = true)
     public void verifySearchTest(MenuItem menuItem) {
-        LOGGER.info("TEST SEARCH" + driver);
+        LOGGER.info("TEST SEARCH " + driver);
         searchPage.clickSearchButton();
         searchPage.enterSearchFieldText(menuItem.getName());
         searchPage.clickSearchStartButton();
-        List<WebElement> items = searchPage.getSearchResultList();
-
-        LOGGER.info("\nFOUND ITEMS CONTAINS: " + menuItem);
-        SoftAssert sa = new SoftAssert();
-        sa.assertFalse(items.isEmpty(), "RESULT EMPTY");
-        items.stream()
-                .map(w -> w.getText().toLowerCase())
-                .peek(t -> sa.assertTrue(t.contains(menuItem.getName()), "ЭТО НЕ " + menuItem.getName() + " " + t))
-                .forEach(System.out::println);
-        sa.assertAll();
-        searchPage.waitfor();
-//        WaitUtils.waitSeconds(2); // подождать посмотреть на результат поиска
+        Assert.assertTrue(searchPage.getAssertResult(menuItem.getName()), "NOT SUCCESS");
+        WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 }
