@@ -7,7 +7,9 @@ import org.itacademy.homework3.pages.DeliveryPage;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 

@@ -1,38 +1,15 @@
 package org.itacademy.homework3.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address {
-    private String street;
-    private String building;
 
-    public Address(String street, String building) {
-        this.street = street;
-        this.building = building;
-    }
+    String street;
+    String building;
 
-    public Address() {
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "street='" + street + '\'' +
-                ", building='" + building + '\'' +
-                '}';
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getBuilding() {
-        return building;
-    }
-
-    public void setBuilding(String building) {
-        this.building = building;
-    }
 }
