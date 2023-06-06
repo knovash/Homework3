@@ -1,17 +1,17 @@
 [org.itacademy.homework3.BaseTest] - BEFORE TEST do nothing
 [org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
-[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (c90f2098e116df30ffd27a195145abf8)
-[org.itacademy.homework3.utils.DataProviderDelivery] - ARR Address(street=Кульман, building=15)
-[org.itacademy.homework3.utils.DataProviderDelivery] - ARR Address(street=Богдановича, building=10)
+[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (fa799a39b683fcfbfe53a4a1ae9e8996)
+[org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=Кульман, building=15)
+[org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=gdfgdgdfgdf, building=10)
 [org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
-[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (c90f2098e116df30ffd27a195145abf8)
-[org.itacademy.homework3.pages.DeliveryPage] - SUCC Проверить адрес доставки По даному адресу доставка возможна
-[org.itacademy.homework3.pages.DeliveryPage] - STATUS true
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (fa799a39b683fcfbfe53a4a1ae9e8996)
+[org.itacademy.homework3.DeliveryTest] - ----status: success
+[org.itacademy.homework3.DeliveryTest] - ----getAttribute: success
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
-[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (c90f2098e116df30ffd27a195145abf8)
-[org.itacademy.homework3.pages.DeliveryPage] - SUCC Проверить адрес доставки По даному адресу доставка возможна
-[org.itacademy.homework3.pages.DeliveryPage] - STATUS true
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (fa799a39b683fcfbfe53a4a1ae9e8996)
+[org.itacademy.homework3.DeliveryTest] - ----status: fail
+[org.itacademy.homework3.DeliveryTest] - ----getAttribute: fail
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.BaseTest] - AFTER CLASS do nothing
 [org.itacademy.homework3.BaseTest] - AFTER TEST quit driver

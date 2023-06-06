@@ -43,7 +43,14 @@ public class DeliveryTest extends BaseTest {
         deliveryPage.enterFieldStreet(address.getStreet());
         deliveryPage.enterFieldBuilding(address.getBuilding());
         deliveryPage.clickButtonCheck();
-        Assert.assertTrue(deliveryPage.getStatus(), "NOT SUCCESS");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        String status = deliveryPage.status().getAttribute("class");
+        LOGGER.info("----status: " + status);
+        Assert.assertEquals(status, "success", "NOT SUCCESS wrong address " + address.getBuilding());
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 

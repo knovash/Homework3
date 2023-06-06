@@ -51,17 +51,7 @@ public class DeliveryPage extends BasePage {
         buttonCheck.click();
     }
 
-    public Boolean getStatus() {
-//        LOGGER.info("CLASS NAME " + deliveryPage.getStatus().getAttribute("class"));
-        Boolean status = false;
-        try {
-            status = statusSuccess.isDisplayed();
-            LOGGER.info("SUCC " + statusSuccess.getText());
-        } catch (NoSuchElementException e) {
-            LOGGER.info("NO ELEMENT");
-        }
-        LOGGER.info("STATUS " + status);
+    public WebElement status() {
         return status;
     }
-
 }
