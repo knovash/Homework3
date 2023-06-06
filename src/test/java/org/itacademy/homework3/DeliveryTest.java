@@ -1,5 +1,6 @@
 package org.itacademy.homework3;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.itacademy.homework3.models.Address;
@@ -14,15 +15,16 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+@Log4j2
 public class DeliveryTest extends BaseTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(DeliveryTest.class);
+//    private static final Logger LOGGER = LogManager.getLogger(DeliveryTest.class);
 //    private DeliveryPage deliveryPage;
     private DeliverySteps deliverySteps;
 
     @BeforeMethod
     public void beforemethod() {
-        LOGGER.info("BEFORE METHOD get page " + Config.getPageDelivery());
+        log.info("BEFORE METHOD get page " + Config.getPageDelivery());
         driver.get(Config.getPageDelivery());
 //        deliveryPage = new DeliveryPage(driver);
         deliverySteps = new DeliverySteps(driver);
@@ -34,7 +36,7 @@ public class DeliveryTest extends BaseTest {
             dataProviderClass = DataProviderDelivery.class,
             description = "Verifys delivery addressses")
     public void verifyDeliveryTest(Address address) {
-        LOGGER.info("TEST DELIVERY" + driver);
+        log.info("TEST DELIVERY" + driver);
         deliverySteps.enterFieldStreet(address.getStreet());
         deliverySteps.enterFieldBuilding(address.getBuilding());
         deliverySteps.clickButtonCheck();
@@ -44,7 +46,7 @@ public class DeliveryTest extends BaseTest {
 
     @Test(testName = "NotTest", description = "Verifys nothing", enabled = true)
     public void verifyNothing() {
-        LOGGER.info("TEST NOTHING");
+        log.info("TEST NOTHING");
 //        deliveryPage.topHeaderAddressesClick();
 //        deliveryPage.topHeaderDeliveryClick();
         Assert.assertTrue(true, "NOT TRUE");

@@ -1,14 +1,14 @@
 [org.itacademy.homework3.BaseTest] - BEFORE TEST do nothing
 [org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
-[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (02753fd7a3f68ae2b4374d0723df9bd6)
+[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (5098ef00f30664f72365b44a5d28d707)
 [org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=Кульман, building=15)
 [org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=gdfgdgdfgdf, building=10)
 [org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
-[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (02753fd7a3f68ae2b4374d0723df9bd6)
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (5098ef00f30664f72365b44a5d28d707)
 [org.itacademy.homework3.steps.DeliverySteps] - STATUS: success
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
-[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (02753fd7a3f68ae2b4374d0723df9bd6)
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (5098ef00f30664f72365b44a5d28d707)
 [org.itacademy.homework3.steps.DeliverySteps] - STATUS: fail
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.BaseTest] - AFTER CLASS do nothing
