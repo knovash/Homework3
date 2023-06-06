@@ -1,14 +1,14 @@
 [org.itacademy.homework3.BaseTest] - BEFORE TEST do nothing
 [org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
-[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (aa51d54a492882736dd324a07f226945)
+[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (71eb6595c822225a5ecc77755c239255)
 [org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=Кульман, building=15)
 [org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=gdfgdgdfgdf, building=10)
 [org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
-[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (aa51d54a492882736dd324a07f226945)
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (71eb6595c822225a5ecc77755c239255)
 [org.itacademy.homework3.steps.DeliverySteps] - STATUS: success
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
-[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (aa51d54a492882736dd324a07f226945)
+[org.itacademy.homework3.DeliveryTest] - TEST DELIVERYChromeDriver: chrome on linux (71eb6595c822225a5ecc77755c239255)
 [org.itacademy.homework3.steps.DeliverySteps] - STATUS: fail
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
@@ -19,7 +19,7 @@
 [org.itacademy.homework3.utils.DataProviderSearch] - DATA MenuItem(name=бургер)
 [org.itacademy.homework3.utils.DataProviderSearch] - DATA MenuItem(name=донер)
 [org.itacademy.homework3.SearchTest] - BEFORE METHOD get page https://donerking.by/
-[org.itacademy.homework3.SearchTest] - TEST SEARCH ChromeDriver: chrome on linux (aa51d54a492882736dd324a07f226945)
+[org.itacademy.homework3.SearchTest] - TEST SEARCH ChromeDriver: chrome on linux (71eb6595c822225a5ecc77755c239255)
 [org.itacademy.homework3.steps.SearchSteps] - CLICK SEARCH BUTTON
 [org.itacademy.homework3.steps.SearchSteps] - SEARCH FIELD
 [org.itacademy.homework3.steps.SearchSteps] - SEARCH FIELD DISPLAYED: true
@@ -36,7 +36,7 @@
 [org.itacademy.homework3.steps.SearchSteps] - двойной чизбургер с говядиной l
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.SearchTest] - BEFORE METHOD get page https://donerking.by/
-[org.itacademy.homework3.SearchTest] - TEST SEARCH ChromeDriver: chrome on linux (aa51d54a492882736dd324a07f226945)
+[org.itacademy.homework3.SearchTest] - TEST SEARCH ChromeDriver: chrome on linux (71eb6595c822225a5ecc77755c239255)
 [org.itacademy.homework3.steps.SearchSteps] - CLICK SEARCH BUTTON
 [org.itacademy.homework3.steps.SearchSteps] - SEARCH FIELD
 [org.itacademy.homework3.steps.SearchSteps] - SEARCH FIELD DISPLAYED: true
