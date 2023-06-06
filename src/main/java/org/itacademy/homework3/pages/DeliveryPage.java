@@ -33,25 +33,27 @@ public class DeliveryPage extends BasePage {
     @FindBy(xpath = "//div[@id='delivery_status']")
     private WebElement status;
 
-    @FindBy(xpath = "//div[@id='delivery_status' and @class='success']")
-    private WebElement statusSuccess;
-
-    @FindBy(xpath = "//div[@id='delivery_status' and @class='fail']")
-    private WebElement statusFail;
-
-    public void enterFieldStreet(String street) {
-        fieldStreet.sendKeys(street);;
-    }
-    public void enterFieldBuilding(String building) {
-        fieldBuilding.sendKeys(building);;
+    public WebDriver getDriver() {
+        return driver;
     }
 
-    public void clickButtonCheck() {
-        WaitUtils.waitForVisibility(buttonCheck);
-        buttonCheck.click();
+    public WebElement getFieldCity() {
+        return fieldCity;
     }
 
-    public WebElement status() {
+    public WebElement getFieldStreet() {
+        return fieldStreet;
+    }
+
+    public WebElement getFieldBuilding() {
+        return fieldBuilding;
+    }
+
+    public WebElement getButtonCheck() {
+        return buttonCheck;
+    }
+
+    public WebElement getStatus() {
         return status;
     }
 }
