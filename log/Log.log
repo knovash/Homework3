@@ -1,8 +1,8 @@
 [org.itacademy.homework3.BaseTest] - BEFORE TEST do nothing
 [org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
-[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (56257ded27f27a6dce110796fcb81e1d)
+[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (7116b338b273109c36623a950708bdca)
 [org.itacademy.homework3.AlexstarTest] - BEFORE METHOD get page https://onliner.by/
-[org.itacademy.homework3.AlexstarTest] - TEST ALEXSTARChromeDriver: chrome on linux (56257ded27f27a6dce110796fcb81e1d)
+[org.itacademy.homework3.AlexstarTest] - TEST ALEXSTARChromeDriver: chrome on linux (7116b338b273109c36623a950708bdca)
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
@@ -35,17 +35,11 @@
 							секунд, подробнее в описании выше.
 						</small></div> <div class="form-group"><label class="toggle-check"><input type="checkbox" true-value="1" false-value="0" class="toggle-check-input yes"> <span class="toggle-check-text yes"></span></label> <label class="form-check-label">Проверять SSL сертификат сервера</label></div> <div class="form-group"><label class="toggle-check"><input type="checkbox" true-value="1" false-value="0" class="toggle-check-input yes"> <span class="toggle-check-text yes"></span></label> <label class="form-check-label">Выход из навыка после выполнения</label></div> <div class="form-group"><div class="form-check"><label class="toggle-check"><input type="checkbox" true-value="1" false-value="0" class="toggle-check-input"> <span class="toggle-check-text"></span></label> <label class="form-check-label green">
 								Правило <span>включено</span><span style="display: none;">выключено</span></label></div></div> <div class="form-group"><label class="toggle-check"><div class="dropdown"><button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><i class="fas fa-cogs"></i> <span>Выбрано 5 из 5</span></button> <div class="dropdown-menu"><a href="#" class="dropdown-item dropdown-item-checked">Кузя ru.yandex.searchplugin/21.111 (Lenovo Lenovo TB-8504F; android 10)</a><a href="#" class="dropdown-item dropdown-item-checked">Кузя ru.yandex.searchplugin/21.90 (Lenovo Lenovo TB-8504F; android 9)</a><a href="#" class="dropdown-item dropdown-item-checked">Кузя aliced/1.0 (Yandex yandexmicro; Linux 1.0)</a><a href="#" class="dropdown-item dropdown-item-checked">колонка</a><a href="#" class="dropdown-item dropdown-item-checked">Кузя ru.yandex.searchplugin/21.110 (CUBOT KINGKONG_MINI; android 9)</a></div></div></label> <label class="form-check-label">Выполнять на выбранных устройствах</label></div></div></div>
-[org.itacademy.homework3.steps.AlexstarSteps] - CONTEXT: [[ChromeDriver: chrome on linux (56257ded27f27a6dce110796fcb81e1d)] -> xpath: //div[@class='col-12 p-3  bg-white']]
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS is disp: true
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS get text: Активационная фраза
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS get class: col-sm-2 col-form-label
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS get value: null
-[org.itacademy.homework3.steps.AlexstarSteps] - OUTER <label class="col-sm-2 col-form-label">Активационная фраза</label>
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS is disp: true
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS get text: 
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS get class: form-control
-[org.itacademy.homework3.steps.AlexstarSteps] - SSS get value: включи музыку в гостиной
-[org.itacademy.homework3.steps.AlexstarSteps] - OUTER <input type="text" class="form-control">
+[org.itacademy.homework3.steps.AlexstarSteps] - CONTEXT: [[ChromeDriver: chrome on linux (7116b338b273109c36623a950708bdca)] -> xpath: //div[@class='col-12 p-3  bg-white']]
+[org.itacademy.homework3.steps.AlexstarSteps] - ELEMENT get value: включи музыку в гостиной
+[org.itacademy.homework3.steps.AlexstarSteps] - ELEMENT get value: включаю музыку
+[org.itacademy.homework3.steps.AlexstarSteps] - ELEMENT get value: https://autoremotejoaomgcd.appspot.com/sendmessage?key=eGIofSCR6vc:APA91bE3To0QpIw6IpuGxdNH7BCga1SHsIXqlu-wA2MJvL3OFlU8xIxSqhs6TbzQCj3eoxXMSLy0nEe9xsAJIhYu1tmyvuajrVMqy-tdefMcD8SmpKv2f1TW_3hQ773mQUezBg2NLaO3&message=Gp
+[org.itacademy.homework3.AlexstarTest] - RULE OBJECT: Rule(actionFrase=включи музыку в гостиной, response=включаю музыку, webHook=https://autoremotejoaomgcd.appspot.com/sendmessage?key=eGIofSCR6vc:APA91bE3To0QpIw6IpuGxdNH7BCga1SHsIXqlu-wA2MJvL3OFlU8xIxSqhs6TbzQCj3eoxXMSLy0nEe9xsAJIhYu1tmyvuajrVMqy-tdefMcD8SmpKv2f1TW_3hQ773mQUezBg2NLaO3&message=Gp)
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.BaseTest] - AFTER CLASS do nothing
 [org.itacademy.homework3.BaseTest] - AFTER TEST quit driver

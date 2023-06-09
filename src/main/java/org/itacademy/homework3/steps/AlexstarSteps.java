@@ -1,6 +1,7 @@
 package org.itacademy.homework3.steps;
 
 import lombok.extern.log4j.Log4j2;
+import org.itacademy.homework3.models.Rule;
 import org.itacademy.homework3.pages.AlexstarPage;
 import org.itacademy.homework3.pages.RuleElement;
 import org.itacademy.homework3.utils.WaitUtils;
@@ -57,18 +58,28 @@ public class AlexstarSteps {
         alexstarPage.getButtonRuleRollDown().click();
     }
 
-    public void getElementRule() {
+    public Rule getElementRule() {
         SearchContext context = alexstarPage.getRule();
+        Rule ruleObject = new Rule();
         log.info("CONTEXT: " + context);
-        WebElement sss = context.findElement(By.xpath(".//label"));
-        log.info("SSS get class: " + sss.getAttribute("class"));
-        log.info("SSS get value: " + sss.getAttribute("value"));
-        log.info("OUTER " + sss.getAttribute("outerHTML"));
-        sss = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
-        log.info("SSS get class: " + sss.getAttribute("class"));
-        log.info("SSS get value: " + sss.getAttribute("value"));
-        log.info("OUTER " + sss.getAttribute("outerHTML"));
+        WebElement element;
+        //        log.info("OUTER " + element.getAttribute("outerHTML"));
+        element = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
+        log.info("ELEMENT get value: " + element.getAttribute("value"));
+        ruleObject.setActionFrase(element.getAttribute("value"));
+        element = context.findElement(By.xpath(".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input"));
+        log.info("ELEMENT get value: " + element.getAttribute("value"));
+        ruleObject.setResponse(element.getAttribute("value"));
+        element = context.findElement(By.xpath(".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input"));
+        log.info("ELEMENT get value: " + element.getAttribute("value"));
+        ruleObject.setWebHook(element.getAttribute("value"));
+        return ruleObject;
     }
 
+    public void getElementsRules(){
+
+//        List<SearchContext> contexts = alexstarPage.getRules();
+
+    }
 
 }

@@ -1,6 +1,7 @@
 package org.itacademy.homework3;
 
 import lombok.extern.log4j.Log4j2;
+import org.itacademy.homework3.models.Rule;
 import org.itacademy.homework3.pages.RuleElement;
 import org.itacademy.homework3.steps.AlexstarSteps;
 import org.itacademy.homework3.utils.Config;
@@ -36,7 +37,8 @@ public class AlexstarTest extends BaseTest {
         alexstarSteps.enterPassword("Darthvader1984");
         alexstarSteps.clickButttonSignIn();
         alexstarSteps.clickButtonRuleRollDown();
-        alexstarSteps.getElementRule();
+        Rule ruleObject = alexstarSteps.getElementRule();
+        log.info("RULE OBJECT: " + ruleObject);
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 

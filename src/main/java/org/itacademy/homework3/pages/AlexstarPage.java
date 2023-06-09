@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 @Log4j2
 public class AlexstarPage extends BasePage {
 
@@ -35,6 +37,9 @@ public class AlexstarPage extends BasePage {
     @FindBy(xpath = "//div[@class='col-12 p-3  bg-white']")
     private WebElement rule;
 
+    @FindBy(xpath = "//div[@class='col-12 p-3  bg-white']")
+    private List<WebElement> rules;
+
     public WebElement getButtonToSettings() {
         return buttonToSettings;
     }
@@ -62,6 +67,11 @@ public class AlexstarPage extends BasePage {
     public WebElement getRule() {
         log.info("RULE " + rule.getAttribute("outerHTML"));
         return rule;
+    }
+
+    public List<WebElement> getRules() {
+        log.info("RULES size " + rules.size());
+        return rules;
     }
 
 
