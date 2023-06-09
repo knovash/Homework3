@@ -35,17 +35,8 @@ public class AlexstarTest extends BaseTest {
         alexstarSteps.clickButttonSignIn();
         alexstarSteps.enterPassword("Darthvader1984");
         alexstarSteps.clickButttonSignIn();
-//        alexstarSteps.clickButtonRuleRollDown();
-        RuleElement ruleElement = alexstarSteps.getElementRule();
-        log.info("ELEMENT " + ruleElement );
-        ruleElement.getFieldActionFrase();
-
-//        log.info("CLASS: " + alexstarSteps.getElementRule().getFieldActionFrase().getAttribute("class") );
-//
-//        log.info("TETXT: " + alexstarSteps.getElementRule().getFieldActionFrase().getText() );
-
-//        log.info("RULE: \n" + rule);
-//        Assert.assertEquals(alexstarSteps.getValueFieldSearch(), item.getName(), "VALUE NOT EQUAL " + item.getName());
+        alexstarSteps.clickButtonRuleRollDown();
+        alexstarSteps.getElementRule();
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 

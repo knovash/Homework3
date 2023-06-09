@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 @Log4j2
 public class AlexstarPage extends BasePage {
 
@@ -34,13 +32,8 @@ public class AlexstarPage extends BasePage {
     @FindBy(xpath = "//*[@class='fas fa-angle-down']")
     private WebElement buttonRuleRollDown;
 
-    @FindBy(xpath = "//div[@class='col-12 p-3  bg-light']")
-    private RuleElement rule;
-
-    @FindBy(xpath = "//div[@class='col-12 p-3  bg-light']")
-    private List<WebElement> rules;
-
-
+    @FindBy(xpath = "//div[@class='col-12 p-3  bg-white']")
+    private WebElement rule;
 
     public WebElement getButtonToSettings() {
         return buttonToSettings;
@@ -66,15 +59,10 @@ public class AlexstarPage extends BasePage {
         return buttonRuleRollDown;
     }
 
-    public RuleElement getRule() {
-        log.info("RULE ");
-//        log.info(rule.isDisplayed());
-        log.info(rule);
+    public WebElement getRule() {
+        log.info("RULE " + rule.getAttribute("outerHTML"));
         return rule;
     }
 
-    public List<WebElement> getRules() {
-        return rules;
-    }
 
 }

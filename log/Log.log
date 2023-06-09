@@ -1,17 +1,51 @@
 [org.itacademy.homework3.BaseTest] - BEFORE TEST do nothing
 [org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
-[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (cf67104f3d8e3054b7058d16dae931f3)
+[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (56257ded27f27a6dce110796fcb81e1d)
 [org.itacademy.homework3.AlexstarTest] - BEFORE METHOD get page https://onliner.by/
-[org.itacademy.homework3.AlexstarTest] - TEST ALEXSTARChromeDriver: chrome on linux (cf67104f3d8e3054b7058d16dae931f3)
+[org.itacademy.homework3.AlexstarTest] - TEST ALEXSTARChromeDriver: chrome on linux (56257ded27f27a6dce110796fcb81e1d)
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
 [org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
-[org.itacademy.homework3.pages.AlexstarPage] - RULE 
-[org.itacademy.homework3.pages.AlexstarPage] - null
-[org.itacademy.homework3.AlexstarTest] - ELEMENT null
+[org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
+[org.itacademy.homework3.pages.AlexstarPage] - RULE <div class="col-12 p-3  bg-white"><div class="row"><h5 data-toggle="collapse" href="#rule1" role="button" aria-expanded="true" aria-controls="rule1" class="col-auto click"><span class="badge badge-secondary">1</span> Правило HTTP <i class="fas fa-angle-down"></i></h5> <span class="col h5 green">включи музыку в гостиной</span> <a href="/smarthome/log/248694" target="_blank" title="Лог последнего запроса" class="col-auto align-self-end fas fa-clipboard-list text-success float-right click h5"></a> <i title="Удалить правило" class="col-auto align-self-end far fa-trash-alt text-danger float-right click h5"></i></div> <div id="rule1" class="collapsing" style="height: 960px;"><div class="form-group row pt-3"><label class="col-sm-2 col-form-label">Активационная фраза</label> <div class="col-sm-4"><input type="text" class="form-control"> <small class="form-text text-muted">Часть текста которая содержится в сообщении (строгое
+								совпадение)
+							</small></div> <label class="col-sm-2 col-form-label">Ответ Кузи</label> <div class="col-sm-4"><input type="text" class="form-control"> <small class="form-text text-muted">Ответ голосового навыка в ответе можно использовать {1}- найденый параметр из
+								запроса
+							</small></div></div> <div class="form-group"><label>URL управления устройством, <strong>доступный из интернета</strong></label> <input type="text" placeholder="" class="form-control"> <small class="form-text text-muted">
+							Ппример: http://site.com/set-light/{1}, где {1} в это место будет подставлено значение найденое
+							во фразе вкл или выкл передается как 0 - выкл и 1 - вкл, так же можно получить фразу которая
+							пришла от Алисы матка {in}<br> по этому url будет отправлен GET запрос<br> <b>При запросе этого правила через виртуальное устройство, в правило будет передан только 1 параметр {value}</b></small></div> <div class="form-group"><label>Тип запроса</label> <select class="form-control"><option value="0">-</option> <option value="1">GET</option> <option value="2">POST urlencoded (application/x-www-form-urlencoded)</option> <option value="3">POST boundary (multipart/form-data; boundary=--10aaaaaaaaaa)</option> <option value="4">POST JSON (application/json; charset=utf-8)</option> <option value="5">PUT urlencoded (application/x-www-form-urlencoded)</option> <option value="6">PUT boundary (multipart/form-data; boundary=--10aaaaaaaaaa)</option> <option value="7">PUT JSON (application/json; charset=utf-8)</option> <option value="8">DELETE</option> <option value="9">PATCH (application/json)</option></select></div> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <div class="form-group"><label>Поиск значений в фразе</label> <select class="form-control"><option value="0">Не искать</option> <option value="1" disabled="disabled">Вкл/Выкл(Устаревшее)</option> <option value="2" disabled="disabled">Произвольное целое число(Устаревшее)</option> <option value="3" disabled="disabled">Произвольное дробное число(Устаревшее)</option> <option value="4">Цифры, вкл/выкл</option></select> <small class="form-text text-muted">
+							Пример для "Все выше перечисленно"<br>Фраза: <strong>Включить ргомкость на 100 процентов и басы
+								на 10.5</strong><br> <a href="https://youtu.be/RmNQfeftyRY" target="_blabk"><img src="/img/youtube.png" alt="Пример поиска значений" style="padding: 10px;"> Пример поиска значений</a><br>
+							Метки заменители для этого текста будут такие:<br>
+							{on1} - 1 <br>
+							{!on1} - 0 <br>
+							{d1} - 100 <br>
+							{f1} - 10.5 <br>
+							{in} - исходный текст<br>
+							{in_command} - чуть преобразованный текст<br>
+							Если в текcте есть повторы цифр или вкл/выкл то они будут найдены аналогично {d2} {f2} {on2}
+						</small></div> <div class="form-check"><label class="toggle-check"><input type="checkbox" true-value="1" false-value="0" class="toggle-check-input yes"> <span class="toggle-check-text yes"></span></label> <label class="form-check-label">
+							Ждать ответ от сервера
+						</label> <small class="form-text text-muted">
+							Ответ от сервера должен быть в формате JSON размером не более 2 кб, время ответа не более 5
+							секунд, подробнее в описании выше.
+						</small></div> <div class="form-group"><label class="toggle-check"><input type="checkbox" true-value="1" false-value="0" class="toggle-check-input yes"> <span class="toggle-check-text yes"></span></label> <label class="form-check-label">Проверять SSL сертификат сервера</label></div> <div class="form-group"><label class="toggle-check"><input type="checkbox" true-value="1" false-value="0" class="toggle-check-input yes"> <span class="toggle-check-text yes"></span></label> <label class="form-check-label">Выход из навыка после выполнения</label></div> <div class="form-group"><div class="form-check"><label class="toggle-check"><input type="checkbox" true-value="1" false-value="0" class="toggle-check-input"> <span class="toggle-check-text"></span></label> <label class="form-check-label green">
+								Правило <span>включено</span><span style="display: none;">выключено</span></label></div></div> <div class="form-group"><label class="toggle-check"><div class="dropdown"><button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><i class="fas fa-cogs"></i> <span>Выбрано 5 из 5</span></button> <div class="dropdown-menu"><a href="#" class="dropdown-item dropdown-item-checked">Кузя ru.yandex.searchplugin/21.111 (Lenovo Lenovo TB-8504F; android 10)</a><a href="#" class="dropdown-item dropdown-item-checked">Кузя ru.yandex.searchplugin/21.90 (Lenovo Lenovo TB-8504F; android 9)</a><a href="#" class="dropdown-item dropdown-item-checked">Кузя aliced/1.0 (Yandex yandexmicro; Linux 1.0)</a><a href="#" class="dropdown-item dropdown-item-checked">колонка</a><a href="#" class="dropdown-item dropdown-item-checked">Кузя ru.yandex.searchplugin/21.110 (CUBOT KINGKONG_MINI; android 9)</a></div></div></label> <label class="form-check-label">Выполнять на выбранных устройствах</label></div></div></div>
+[org.itacademy.homework3.steps.AlexstarSteps] - CONTEXT: [[ChromeDriver: chrome on linux (56257ded27f27a6dce110796fcb81e1d)] -> xpath: //div[@class='col-12 p-3  bg-white']]
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS is disp: true
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS get text: Активационная фраза
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS get class: col-sm-2 col-form-label
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS get value: null
+[org.itacademy.homework3.steps.AlexstarSteps] - OUTER <label class="col-sm-2 col-form-label">Активационная фраза</label>
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS is disp: true
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS get text: 
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS get class: form-control
+[org.itacademy.homework3.steps.AlexstarSteps] - SSS get value: включи музыку в гостиной
+[org.itacademy.homework3.steps.AlexstarSteps] - OUTER <input type="text" class="form-control">
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
 [org.itacademy.homework3.BaseTest] - AFTER CLASS do nothing
 [org.itacademy.homework3.BaseTest] - AFTER TEST quit driver

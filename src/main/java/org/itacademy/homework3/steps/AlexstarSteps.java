@@ -4,7 +4,10 @@ import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.pages.AlexstarPage;
 import org.itacademy.homework3.pages.RuleElement;
 import org.itacademy.homework3.utils.WaitUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 @Log4j2
 public class AlexstarSteps {
@@ -54,17 +57,18 @@ public class AlexstarSteps {
         alexstarPage.getButtonRuleRollDown().click();
     }
 
-    public RuleElement getElementRule() {
-//        WaitUtils.waitForVisibility(alexstarPage.getRule());
-//        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getRule().isDisplayed());
-        return alexstarPage.getRule();
+    public void getElementRule() {
+        SearchContext context = alexstarPage.getRule();
+        log.info("CONTEXT: " + context);
+        WebElement sss = context.findElement(By.xpath(".//label"));
+        log.info("SSS get class: " + sss.getAttribute("class"));
+        log.info("SSS get value: " + sss.getAttribute("value"));
+        log.info("OUTER " + sss.getAttribute("outerHTML"));
+        sss = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
+        log.info("SSS get class: " + sss.getAttribute("class"));
+        log.info("SSS get value: " + sss.getAttribute("value"));
+        log.info("OUTER " + sss.getAttribute("outerHTML"));
     }
-
-//    public WebElement getFieldActonFrase() {
-//        WaitUtils.waitForVisibility(alexstarPage.getActionFrase());
-//        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getActionFrase().isDisplayed());
-//        return alexstarPage.getActionFrase();
-//    }
 
 
 }
