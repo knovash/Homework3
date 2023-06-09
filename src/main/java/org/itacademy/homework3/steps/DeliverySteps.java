@@ -22,6 +22,13 @@ public class DeliverySteps {
         deliveryPage.getFieldStreet().sendKeys(street);
     }
 
+    public String getFieldStreet() {
+        WaitUtils.waitForVisibility(deliveryPage.getFieldStreet());
+//        getAttribute("value")
+//        return deliveryPage.getFieldStreet().getText();
+        return deliveryPage.getFieldStreet().getAttribute("value");
+    }
+
     public void enterFieldBuilding(String building) {
         WaitUtils.waitForVisibility(deliveryPage.getFieldBuilding());
         deliveryPage.getFieldBuilding().sendKeys(building);

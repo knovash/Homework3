@@ -14,6 +14,9 @@ public class Config {
     private static String chromeDriver;
     private static String pageSearch;
     private static String pageDelivery;
+    private static String pageOnliner;
+
+    private static String pageAlexstar;
 
     public static void getProperties() {
         Properties properties = new Properties();
@@ -26,6 +29,8 @@ public class Config {
             chromeDriver = properties.getProperty("chromedriver");
             pageSearch = properties.getProperty("page-main-search");
             pageDelivery = properties.getProperty("page-delivery");
+            pageOnliner = properties.getProperty("page-onliner");
+            pageAlexstar = properties.getProperty("page-alexstar");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -41,5 +46,13 @@ public class Config {
 
     public static String getPageDelivery() {
         return pageDelivery;
+    }
+
+    public static String getPageOnliner() {
+        return pageOnliner;
+    }
+
+    public static String getPageAlexstar() {
+        return pageAlexstar;
     }
 }

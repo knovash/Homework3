@@ -1,9 +1,6 @@
 package org.itacademy.homework3;
 
-import org.itacademy.homework3.models.Address;
-import org.itacademy.homework3.models.AddressList;
-import org.itacademy.homework3.models.MenuItem;
-import org.itacademy.homework3.models.MenuList;
+import org.itacademy.homework3.models.*;
 import org.itacademy.homework3.utils.GenerateJSON;
 
 import java.util.ArrayList;
@@ -17,9 +14,9 @@ public class Main {
         menuList.add(new MenuItem("бургер"));
         menuList.add(new MenuItem("донер"));
         menuList.add(new MenuItem("пончик"));
-        MenuList items = new MenuList();
-        items.setItems(menuList);
-        GenerateJSON.objectToFile(items, "menuitems.json");
+        MenuList menuItems = new MenuList();
+        menuItems.setItems(menuList);
+        GenerateJSON.objectToFile(menuItems, "menuitems.json");
 
 
         List<Address> addressList = new ArrayList<>();
@@ -28,6 +25,14 @@ public class Main {
         AddressList addresses = new AddressList();
         addresses.setAddresses(addressList);
         GenerateJSON.objectToFile(addresses, "addresses.json");
+
+        List<CatalogItem> catalogList = new ArrayList<>();
+        catalogList.add(new CatalogItem("телевизор"));
+//        catalogList.add(new CatalogItem("телефон"));
+//        catalogList.add(new CatalogItem("ноутбук"));
+        CatalogList catalogItems = new CatalogList();
+        catalogItems.setItems(catalogList);
+        GenerateJSON.objectToFile(catalogItems, "catalogitems.json");
 
 
     }

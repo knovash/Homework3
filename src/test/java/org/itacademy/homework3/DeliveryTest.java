@@ -32,6 +32,7 @@ public class DeliveryTest extends BaseTest {
     public void verifyDeliveryTest(Address address) {
         log.info("TEST DELIVERY" + driver);
         deliverySteps.enterFieldStreet(address.getStreet());
+        log.info("GET TEXT getFieldStreet " + deliverySteps.getFieldStreet());
         deliverySteps.enterFieldBuilding(address.getBuilding());
         deliverySteps.clickButtonCheck();
         Assert.assertEquals(deliverySteps.status(), "success", "NOT SUCCESS wrong address " + address.getBuilding());

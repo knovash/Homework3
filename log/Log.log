@@ -1,18 +1,17 @@
 [org.itacademy.homework3.BaseTest] - BEFORE TEST do nothing
 [org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
-[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (ef257a28a5e16da6ae3a0840b63c03a7)
-[org.itacademy.homework3.utils.DataProviderSearch] - DATA MenuItem(name=бургер)
-[org.itacademy.homework3.utils.DataProviderSearch] - DATA MenuItem(name=донер)
-[org.itacademy.homework3.SearchTest] - BEFORE METHOD get page https://donerking.by/
-[org.itacademy.homework3.SearchTest] - TEST SEARCH ChromeDriver: chrome on linux (ef257a28a5e16da6ae3a0840b63c03a7)
-[org.itacademy.homework3.steps.SearchSteps] - CLICK SEARCH BUTTON
-[org.itacademy.homework3.steps.SearchSteps] - SEARCH FIELD
-[org.itacademy.homework3.steps.SearchSteps] - SEARCH FIELD DISPLAYED: true
-[org.itacademy.homework3.steps.SearchSteps] - CLICK SEARCH START
-[org.itacademy.homework3.steps.SearchSteps] - ERRORR ASSERT
+[org.itacademy.homework3.driver.DriverManager] - NEW CHROMEDRIVER: ChromeDriver: chrome on linux (cf67104f3d8e3054b7058d16dae931f3)
+[org.itacademy.homework3.AlexstarTest] - BEFORE METHOD get page https://onliner.by/
+[org.itacademy.homework3.AlexstarTest] - TEST ALEXSTARChromeDriver: chrome on linux (cf67104f3d8e3054b7058d16dae931f3)
+[org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
+[org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
+[org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
+[org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
+[org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
+[org.itacademy.homework3.steps.AlexstarSteps] - DISPLAYED getButtonAlexstar: true
+[org.itacademy.homework3.pages.AlexstarPage] - RULE 
+[org.itacademy.homework3.pages.AlexstarPage] - null
+[org.itacademy.homework3.AlexstarTest] - ELEMENT null
 [org.itacademy.homework3.BaseTest] - AFTER METHOD do nothing
-[org.itacademy.homework3.SearchTest] - BEFORE METHOD get page https://donerking.by/
-[org.itacademy.homework3.BaseTest] - BEFORE CLASS get driver
-[org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=Кульман, building=15)
-[org.itacademy.homework3.utils.DataProviderDelivery] - DATA Address(street=Богдановича, building=10)
-[org.itacademy.homework3.DeliveryTest] - BEFORE METHOD get page https://donerking.by/delivery
+[org.itacademy.homework3.BaseTest] - AFTER CLASS do nothing
+[org.itacademy.homework3.BaseTest] - AFTER TEST quit driver
