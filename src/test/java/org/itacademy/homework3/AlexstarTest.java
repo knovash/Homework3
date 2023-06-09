@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 @Log4j2
 public class AlexstarTest extends BaseTest {
@@ -39,6 +40,8 @@ public class AlexstarTest extends BaseTest {
         alexstarSteps.clickButtonRuleRollDown();
         Rule ruleObject = alexstarSteps.getElementRule();
         log.info("RULE OBJECT: " + ruleObject);
+        List<Rule> list = alexstarSteps.getElementsRules();
+        log.info("RULE OBJECT: " + list);
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 

@@ -10,6 +10,10 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Log4j2
 public class AlexstarSteps {
 
@@ -76,10 +80,27 @@ public class AlexstarSteps {
         return ruleObject;
     }
 
-    public void getElementsRules(){
-
-//        List<SearchContext> contexts = alexstarPage.getRules();
-
+    public List<Rule> getElementsRules() {
+        Rule ruleObject = new Rule();
+        List<WebElement> elements = alexstarPage.getRules();
+        List<Rule> ruleList =
+        elements.stream().map(context -> {
+                    log.info("CONTEXT: " + context);
+                    WebElement element;
+                    element = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
+                    log.info("ELEMENT get value: " + element.getAttribute("value"));
+                    ruleObject.setActionFrase(element.getAttribute("value"));
+                    element = context.findElement(By.xpath(".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input"));
+                    log.info("ELEMENT get value: " + element.getAttribute("value"));
+                    ruleObject.setResponse(element.getAttribute("value"));
+                    element = context.findElement(By.xpath(".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input"));
+                    log.info("ELEMENT get value: " + element.getAttribute("value"));
+                    ruleObject.setWebHook(element.getAttribute("value"));
+                    return ruleObject;
+                })
+                .collect(Collectors.toList());
+        return ruleList;
     }
+
 
 }
