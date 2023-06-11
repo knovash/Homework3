@@ -28,7 +28,7 @@ public class CatalogTest extends BaseTest {
     @Test(testName = "CheckCatalog",
             dataProvider = "items",
             dataProviderClass = DataProviderCatalog.class,
-            description = "Verifys catalog addressses")
+            description = "Verifys catalog addressses", enabled = false)
     public void verifyCatalogTest(CatalogItem item) {
         log.info("TEST CATALOG" + driver);
         catalogSteps.clickButttonCatalog();

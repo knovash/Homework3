@@ -28,7 +28,7 @@ public class AlexstarTest extends BaseTest {
 
     @Test(testName = "CheckAlexstar",
 //            dataProvider = "items",
-            description = "Verifys alexstar addressses")
+            description = "Verifys alexstar addressses", enabled = true)
     public void verifyAlexstarTest() {
         log.info("TEST ALEXSTAR" + driver);
         alexstarSteps.clickButttonToSettings();

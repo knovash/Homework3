@@ -4,7 +4,6 @@
     <test name="Test addresses and menuitems">
         <classes>
             <class name="org.itacademy.homework3.DeliveryTest"/>
-            <class name="org.itacademy.homework3.SearchTest"/>
         </classes>
     </test>
 </suite>

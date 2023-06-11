@@ -28,7 +28,7 @@ public class DeliveryTest extends BaseTest {
     @Test(testName = "CheckDelivery",
             dataProvider = "addresses",
             dataProviderClass = DataProviderDelivery.class,
-            description = "Verifys delivery addressses")
+            description = "Verifys delivery addressses", enabled = true)
     public void verifyDeliveryTest(Address address) {
         log.info("TEST DELIVERY" + driver);
         deliverySteps.enterFieldStreet(address.getStreet());
@@ -39,11 +39,11 @@ public class DeliveryTest extends BaseTest {
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 
-    @Test(testName = "NotTest", description = "Verifys nothing", enabled = true)
-    public void verifyNothing() {
-        log.info("TEST NOTHING");
-//        deliveryPage.topHeaderAddressesClick();
-//        deliveryPage.topHeaderDeliveryClick();
-        Assert.assertTrue(true, "NOT TRUE");
-    }
+//    @Test(testName = "NotTest", description = "Verifys nothing", enabled = false)
+//    public void verifyNothing() {
+//        log.info("TEST NOTHING");
+////        deliveryPage.topHeaderAddressesClick();
+////        deliveryPage.topHeaderDeliveryClick();
+//        Assert.assertTrue(true, "NOT TRUE");
+//    }
 }

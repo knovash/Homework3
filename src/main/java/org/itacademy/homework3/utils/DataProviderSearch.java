@@ -15,7 +15,7 @@ public class DataProviderSearch {
     @DataProvider(name = "menuItems")
     public Object[][] menuItems()
     {
-        MenuList menuList = GetFromJSON.get("data/items.json", MenuList.class);
+        MenuList menuList = GetFromJSON.get("data/menuitems.json", MenuList.class);
         List<MenuItem> list = menuList.getItems();
         int size = list.size();
         Object[][] data = new Object[size][1];
