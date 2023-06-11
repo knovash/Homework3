@@ -51,7 +51,6 @@ public class SearchSteps {
         try {
 //            resultItems.stream()
             searchPage.getResultItems().stream()
-
                     .map(w -> w.getText().toLowerCase())
                     .peek(t -> sa.assertTrue(t.contains(item), "ЭТО НЕ " + item + " " + t))
                     .forEach(x -> log.info(x));

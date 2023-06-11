@@ -6,10 +6,9 @@
         <listener class-name="org.itacademy.homework3.utils.AllureListener"></listener>
     </listeners>
 
-    <test name="Donerking tests">
+    <test name="Onliner tests">
         <classes>
-            <class name="org.itacademy.homework3.DeliveryTimerTest"/>
-            <class name="org.itacademy.homework3.SearchTest"/>
+            <class name="org.itacademy.homework3.CatalogTest"/>
         </classes>
     </test>
 </suite>
