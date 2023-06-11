@@ -38,12 +38,4 @@ public class DeliveryTest extends BaseTest {
         Assert.assertEquals(deliverySteps.status(), "success", "NOT SUCCESS wrong address " + address.getBuilding());
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
-
-//    @Test(testName = "NotTest", description = "Verifys nothing", enabled = false)
-//    public void verifyNothing() {
-//        log.info("TEST NOTHING");
-////        deliveryPage.topHeaderAddressesClick();
-////        deliveryPage.topHeaderDeliveryClick();
-//        Assert.assertTrue(true, "NOT TRUE");
-//    }
 }
