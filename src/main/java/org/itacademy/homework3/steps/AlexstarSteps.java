@@ -5,10 +5,7 @@ import org.itacademy.homework3.models.Rule;
 import org.itacademy.homework3.pages.AlexstarPage;
 import org.itacademy.homework3.pages.RuleElement;
 import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,37 +25,49 @@ public class AlexstarSteps {
 
     public void clickButttonToSettings() {
         WaitUtils.waitForVisibility(alexstarPage.getButtonToSettings());
-        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getButtonToSettings().isDisplayed());
+        log.info("DISPLAYED getButtonToSettings: " + alexstarPage.getButtonToSettings().isDisplayed());
         alexstarPage.getButtonToSettings().click();
     }
 
     public void clickButttonEnterYandex() {
         WaitUtils.waitForVisibility(alexstarPage.getButtonEnterYandex());
-        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getButtonEnterYandex().isDisplayed());
+        log.info("DISPLAYED getButtonEnterYandex: " + alexstarPage.getButtonEnterYandex().isDisplayed());
         alexstarPage.getButtonEnterYandex().click();
     }
 
     public void enterLogin(String login) {
         WaitUtils.waitForVisibility(alexstarPage.getFieldLogin());
-        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getFieldLogin().isDisplayed());
+        log.info("DISPLAYED getFieldLogin: " + alexstarPage.getFieldLogin().isDisplayed());
         alexstarPage.getFieldLogin().sendKeys(login);
     }
 
     public void enterPassword(String password) {
         WaitUtils.waitForVisibility(alexstarPage.getFieldPassword());
-        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getFieldPassword().isDisplayed());
+        log.info("DISPLAYED getFieldPassword: " + alexstarPage.getFieldPassword().isDisplayed());
         alexstarPage.getFieldPassword().sendKeys(password);
     }
 
     public void clickButttonSignIn() {
         WaitUtils.waitForVisibility(alexstarPage.getButtonSignIn());
-        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getButtonSignIn().isDisplayed());
+        log.info("DISPLAYED getButtonSignIn: " + alexstarPage.getButtonSignIn().isDisplayed());
         alexstarPage.getButtonSignIn().click();
+    }
+
+    public void clickButttonAuth() {
+        try {
+
+
+            if (alexstarPage.getButtonSignIn().isDisplayed() == true) {
+                log.info("CLICK AUTH");
+                alexstarPage.getButtonAuth().click();
+            }
+        }
+        catch (NoSuchElementException e){log.info("NO AUTH");}
     }
 
     public void clickButtonRuleRollDown() {
         WaitUtils.waitForVisibility(alexstarPage.getButtonRuleRollDown());
-        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getButtonRuleRollDown().isDisplayed());
+        log.info("DISPLAYED getButtonRuleRollDown: " + alexstarPage.getButtonRuleRollDown().isDisplayed());
         alexstarPage.getButtonRuleRollDown().click();
     }
 
@@ -84,22 +93,82 @@ public class AlexstarSteps {
         Rule ruleObject = new Rule();
         List<WebElement> elements = alexstarPage.getRules();
         List<Rule> ruleList =
-        elements.stream().map(context -> {
-                    log.info("CONTEXT: " + context);
-                    WebElement element;
-                    element = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
-                    log.info("ELEMENT get value: " + element.getAttribute("value"));
-                    ruleObject.setActionFrase(element.getAttribute("value"));
-                    element = context.findElement(By.xpath(".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input"));
-                    log.info("ELEMENT get value: " + element.getAttribute("value"));
-                    ruleObject.setResponse(element.getAttribute("value"));
-                    element = context.findElement(By.xpath(".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input"));
-                    log.info("ELEMENT get value: " + element.getAttribute("value"));
-                    ruleObject.setWebHook(element.getAttribute("value"));
-                    return ruleObject;
-                })
-                .collect(Collectors.toList());
+             elements.stream().map(context -> {
+             Rule object = new Rule();
+             log.info("CONTEXT: " + context);
+             WebElement element;
+             element = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
+             log.info("ELEMENT get value: " + element.getAttribute("value"));
+             object.setActionFrase(element.getAttribute("value"));
+             element = context.findElement(By.xpath(".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input"));
+             log.info("ELEMENT get value: " + element.getAttribute("value"));
+             object.setResponse(element.getAttribute("value"));
+             element = context.findElement(By.xpath(".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input"));
+             log.info("ELEMENT get value: " + element.getAttribute("value"));
+             object.setWebHook(element.getAttribute("value"));
+             return object;
+                        })
+             .collect(Collectors.toList());
         return ruleList;
+    }
+
+    public void clickButttonCreateRuleHttp() {
+        WaitUtils.waitForVisibility(alexstarPage.getButtonCreateRuleHttp());
+        log.info("DISPLAYED getButtonCreateRuleHttp: " + alexstarPage.getButtonCreateRuleHttp().isDisplayed());
+        alexstarPage.getButtonCreateRuleHttp().click();
+    }
+
+    public void getFirstRule() {
+        WaitUtils.waitForVisibility(alexstarPage.getFirstRule());
+        log.info("DISPLAYED getButtonCreateRuleHttp: " + alexstarPage.getFirstRule().isDisplayed());
+        log.info("HTML getButtonCreateRuleHttp: " + alexstarPage.getFirstRule().getAttribute("outerHTML"));
+//        alexstarPage.getFirstRule().click();
+    }
+
+    public void enterFrase(String text) {
+        WaitUtils.waitForVisibility(alexstarPage.getInputFrase());
+        log.info("DISPLAYED getInputFrase: " + alexstarPage.getInputFrase().isDisplayed());
+        log.info("HTML getInputFrase: " + alexstarPage.getInputFrase().getAttribute("outerHTML"));
+        alexstarPage.getInputFrase().sendKeys(text);
+        log.info("VALUE getInputFrase: " + alexstarPage.getInputFrase().getAttribute("value"));
+    }
+
+    public void enterResponse(String text) {
+        WaitUtils.waitForVisibility(alexstarPage.getInputResponse());
+        log.info("DISPLAYED getInputResponse: " + alexstarPage.getInputResponse().isDisplayed());
+        log.info("HTML getInputResponse: " + alexstarPage.getInputResponse().getAttribute("outerHTML"));
+        alexstarPage.getInputResponse().sendKeys(text);
+        log.info("VALUE getInputResponse: " + alexstarPage.getInputResponse().getAttribute("value"));
+    }
+
+    public void enterWebhook(String text) {
+        WaitUtils.waitForVisibility(alexstarPage.getInputWebHook());
+        log.info("DISPLAYED getInputWebHook: " + alexstarPage.getInputWebHook().isDisplayed());
+        log.info("HTML getInputWebHook: " + alexstarPage.getInputWebHook().getAttribute("outerHTML"));
+        alexstarPage.getInputWebHook().sendKeys(text);
+        log.info("VALUE getInputWebHook: " + alexstarPage.getInputWebHook().getAttribute("value"));
+    }
+
+    public void selectType() {
+        WaitUtils.waitForVisibility(alexstarPage.getSelectType());
+        log.info("DISPLAYED getSelectType: " + alexstarPage.getSelectType().isDisplayed());
+        log.info("HTML getSelectType: " + alexstarPage.getSelectType().getAttribute("outerHTML"));
+        alexstarPage.getSelectType().sendKeys("PATCH (application/json)");
+        log.info("VALUE getSelectType: " + alexstarPage.getSelectType().getAttribute("value"));
+    }
+
+    public void selectToggleSSL() {
+        WaitUtils.waitForVisibility(alexstarPage.getSelectToggleSSL());
+        log.info("DISPLAYED getSelectToggleSSL: " + alexstarPage.getSelectToggleSSL().isDisplayed());
+        log.info("HTML getSelectToggleSSL: " + alexstarPage.getSelectToggleSSL().getAttribute("outerHTML"));
+        log.info("VALUE getSelectToggleSSL: " + alexstarPage.getSelectToggleSSL().getAttribute("value"));
+        WaitUtils.waitSeconds(3);
+        log.info("SELECTED: " + alexstarPage.getSelectToggleSSL().isSelected());
+        WaitUtils.waitSeconds(3);
+        alexstarPage.getSelectToggleSSL().click();
+        WaitUtils.waitSeconds(3);
+        log.info("SELECTED: " + alexstarPage.getSelectToggleSSL().isSelected());
+        WaitUtils.waitSeconds(3);
     }
 
 

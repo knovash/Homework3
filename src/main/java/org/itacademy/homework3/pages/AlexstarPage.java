@@ -31,6 +31,10 @@ public class AlexstarPage extends BasePage {
     @FindBy(xpath = "//button[@id='passp:sign-in']")
     private WebElement buttonSignIn;
 
+
+    @FindBy(xpath = "//button[@data-t='button:action']")
+    private WebElement buttonAuth;
+
     @FindBy(xpath = "//*[@class='fas fa-angle-down']")
     private WebElement buttonRuleRollDown;
 
@@ -39,6 +43,39 @@ public class AlexstarPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='col-12 p-3  bg-white']")
     private List<WebElement> rules;
+
+    @FindBy(xpath = "//button[contains(text(), 'Добавить правило HTTP (GET)')]")
+    private WebElement buttonCreateRuleHttp;
+
+
+//    @FindBy(xpath = "//span[@class = 'badge badge-secondary' and text()='1']")
+//    private WebElement firstRule;
+
+    @FindBy(xpath = "//span[@class = 'badge badge-secondary' and text()='1']/../../..")
+    private WebElement firstRule;
+
+    @FindBy(xpath = ".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input")
+    private WebElement inputFrase;
+
+    @FindBy(xpath = ".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input")
+    private WebElement inputResponse;
+
+    @FindBy(xpath = ".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input")
+    private WebElement inputWebHook;
+
+    @FindBy(xpath = ".//label[contains(text(), 'Тип запроса')]/following-sibling::select")
+    private WebElement selectType;
+
+    @FindBy(xpath = ".//label[contains(text(), 'Поиск значений в фразе')]/following-sibling::select")
+    private WebElement selectValue;
+
+    @FindBy(xpath = ".//label[contains(text(), 'Проверять SSL сертификат сервера')]/..//input")
+//    @FindBy(xpath = ".//label[contains(text(), 'Проверять SSL сертификат сервера')]")
+    private WebElement selectToggleSSL;
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     public WebElement getButtonToSettings() {
         return buttonToSettings;
@@ -60,19 +97,51 @@ public class AlexstarPage extends BasePage {
         return buttonSignIn;
     }
 
+    public WebElement getButtonAuth() {
+        return buttonAuth;
+    }
+
     public WebElement getButtonRuleRollDown() {
         return buttonRuleRollDown;
     }
 
     public WebElement getRule() {
-        log.info("RULE " + rule.getAttribute("outerHTML"));
         return rule;
     }
 
     public List<WebElement> getRules() {
-        log.info("RULES size " + rules.size());
         return rules;
     }
 
+    public WebElement getButtonCreateRuleHttp() {
+        return buttonCreateRuleHttp;
+    }
 
+    public WebElement getFirstRule() {
+        return firstRule;
+    }
+
+    public WebElement getInputFrase() {
+        return inputFrase;
+    }
+
+    public WebElement getInputResponse() {
+        return inputResponse;
+    }
+
+    public WebElement getInputWebHook() {
+        return inputWebHook;
+    }
+
+    public WebElement getSelectType() {
+        return selectType;
+    }
+
+    public WebElement getSelectValue() {
+        return selectValue;
+    }
+
+    public WebElement getSelectToggleSSL() {
+        return selectToggleSSL;
+    }
 }

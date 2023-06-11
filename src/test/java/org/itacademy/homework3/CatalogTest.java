@@ -1,5 +1,7 @@
 package org.itacademy.homework3;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.models.CatalogItem;
 import org.itacademy.homework3.steps.CatalogSteps;
@@ -8,11 +10,13 @@ import org.itacademy.homework3.utils.DataProviderCatalog;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 @Log4j2
+//@Listeners
 public class CatalogTest extends BaseTest {
 
     private CatalogSteps catalogSteps;
@@ -25,6 +29,9 @@ public class CatalogTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+
+//    @Description("Test Onliner search field")
+//    @Issue("wrong search results")
     @Test(testName = "CheckCatalog",
             dataProvider = "items",
             dataProviderClass = DataProviderCatalog.class,

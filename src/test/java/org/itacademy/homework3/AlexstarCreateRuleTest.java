@@ -2,12 +2,10 @@ package org.itacademy.homework3;
 
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.models.Rule;
-import org.itacademy.homework3.pages.RuleElement;
 import org.itacademy.homework3.steps.AlexstarSteps;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.RulesToJSON;
 import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,7 +13,7 @@ import java.time.Duration;
 import java.util.List;
 
 @Log4j2
-public class AlexstarTest extends BaseTest {
+public class AlexstarCreateRuleTest extends BaseTest {
 
     private AlexstarSteps alexstarSteps;
 
@@ -38,14 +36,16 @@ public class AlexstarTest extends BaseTest {
         alexstarSteps.clickButttonSignIn();
         alexstarSteps.enterPassword("Darthvader1981");
         alexstarSteps.clickButttonSignIn();
-//        alexstarSteps.clickButtonRuleRollDown();
-//        Rule ruleObject = alexstarSteps.getElementRule();
-//        log.info("RULE OBJECT: " + ruleObject);
-        List<Rule> list = alexstarSteps.getElementsRules();
-        list.stream().forEach(rule -> { log.info(rule);});
-//        log.info("RULE OBJECT: " + list);
-        RulesToJSON.toJson(list);
-        WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
+        alexstarSteps.clickButttonAuth();
+        alexstarSteps.clickButttonCreateRuleHttp();
+        alexstarSteps.getFirstRule();
+        alexstarSteps.enterFrase("frase");
+        alexstarSteps.enterResponse("response");
+        alexstarSteps.enterWebhook("webhook");
+        alexstarSteps.selectType();
+        alexstarSteps.selectToggleSSL();
+        WaitUtils.waitSeconds(2);
+
     }
 
 }

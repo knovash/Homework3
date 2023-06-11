@@ -1,0 +1,11 @@
+{
+  "rules" : [ {
+    "actionFrase" : "включи нове1",
+    "response" : "включаю новое1",
+    "webHook" : "https://autoremotejoaomgcd.appspot.com/sendmessage?key=eGIofSCR6vc:APA91bE3To0QpIw6IpuGxdNH7BCga1SHsIXqlu-wA2MJvL3OFlU8xIxSqhs6TbzQCj3eoxXMSLy0nEe9xsAJIhYu1tmyvuajrVMqy-tdefMcD8SmpKv2f1TW_3hQ773mQUezBg2NLaO3&message=N1"
+  }, {
+    "actionFrase" : "включи нове2",
+    "response" : "включаю новое2",
+    "webHook" : "https://autoremotejoaomgcd.appspot.com/sendmessage?key=eGIofSCR6vc:APA91bE3To0QpIw6IpuGxdNH7BCga1SHsIXqlu-wA2MJvL3OFlU8xIxSqhs6TbzQCj3eoxXMSLy0nEe9xsAJIhYu1tmyvuajrVMqy-tdefMcD8SmpKv2f1TW_3hQ773mQUezBg2NLaO3&message=N2"
+  } ]
+}

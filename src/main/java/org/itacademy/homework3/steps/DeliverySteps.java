@@ -1,5 +1,6 @@
 package org.itacademy.homework3.steps;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.pages.DeliveryPage;
 import org.itacademy.homework3.utils.WaitUtils;
@@ -16,36 +17,33 @@ public class DeliverySteps {
     }
 
     // методы из пэйджи
-
+    @Step("Enter Field Street")
     public void enterFieldStreet(String street) {
         WaitUtils.waitForVisibility(deliveryPage.getFieldStreet());
         deliveryPage.getFieldStreet().sendKeys(street);
     }
 
+    @Step("Get Field Street")
     public String getFieldStreet() {
         WaitUtils.waitForVisibility(deliveryPage.getFieldStreet());
-//        getAttribute("value")
-//        return deliveryPage.getFieldStreet().getText();
         return deliveryPage.getFieldStreet().getAttribute("value");
     }
 
+    @Step("Enter Field Building")
     public void enterFieldBuilding(String building) {
         WaitUtils.waitForVisibility(deliveryPage.getFieldBuilding());
         deliveryPage.getFieldBuilding().sendKeys(building);
     }
 
+    @Step("Click Button Check")
     public void clickButtonCheck() {
         WaitUtils.waitForVisibility(deliveryPage.getButtonCheck());
         deliveryPage.getButtonCheck().click();
     }
 
+    @Step("Get status")
     public String status() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-//        WaitUtils.waitForVisibility(deliveryPage.getStatus()); // недостаточно вэйт визибилити. нужен слип
+        WaitUtils.waitForVisibility(deliveryPage.getStatus());
         String status = deliveryPage.getStatus().getAttribute("class");
         log.info("STATUS: " + status);
         return status;

@@ -6,9 +6,10 @@
         <listener class-name="org.itacademy.homework3.utils.AllureListener"></listener>
     </listeners>
 
-    <test name="Test addresses and menuitems">
+    <test name="Sute 1">
         <classes>
-            <class name="org.itacademy.homework3.DeliveryTest"/>
+<!--            <class name="org.itacademy.homework3.CatalogTest"/>-->
+            <class name="org.itacademy.homework3.DeliveryTimerTest"/>
             <class name="org.itacademy.homework3.SearchTest"/>
         </classes>
     </test>
