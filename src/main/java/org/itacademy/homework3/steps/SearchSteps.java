@@ -1,5 +1,6 @@
 package org.itacademy.homework3.steps;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.pages.SearchPage;
 import org.itacademy.homework3.utils.WaitUtils;
@@ -18,12 +19,14 @@ public class SearchSteps {
 
     // методы из пэйджи
 
+    @Step("Click serch button for show search field")
     public void clickSearchButton() {
         log.info("CLICK SEARCH BUTTON");
         WaitUtils.waitForVisibility(searchPage.getSearchButton());
         searchPage.getSearchButton().click();
     }
 
+    @Step("Enter text in search field")
     public void enterSearchFieldText(String text) {
         log.info("SEARCH FIELD");
         WaitUtils.waitForVisibility(searchPage.getSearchField());
@@ -31,12 +34,14 @@ public class SearchSteps {
         searchPage.getSearchField().sendKeys(text);
     }
 
+    @Step("Click start search button")
     public void clickSearchStartButton() {
         log.info("CLICK SEARCH START");
         WaitUtils.waitForVisibility(searchPage.getSearchStartButton());
         searchPage.getSearchStartButton().click();
     }
 
+    @Step("Get result list of items")
     public Boolean getAssertResult(String item) {
         SoftAssert sa = new SoftAssert();
 //        sa.assertFalse(resultItems.isEmpty(), "RESULT EMPTY");

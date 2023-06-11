@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Verify search box work">
+
+    <listeners>
+        <listener class-name="org.itacademy.homework3.utils.AllureListener"></listener>
+    </listeners>
+
     <test name="Test addresses and menuitems">
         <classes>
-            <class name="org.itacademy.homework3.DeliveryTest"/>
+<!--            <class name="org.itacademy.homework3.DeliveryTest"/>-->
+            <class name="org.itacademy.homework3.SearchTest"/>
         </classes>
     </test>
 </suite>
