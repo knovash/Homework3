@@ -14,12 +14,14 @@ public class BaseTest {
     @BeforeTest
     public void beforetest() {
         LOGGER.info("BEFORE TEST do nothing");
+//        driver = DriverManager.getDriver();
     }
 
     @BeforeClass
     public void beforeclass() {
         LOGGER.info("BEFORE CLASS get driver");
         driver = DriverManager.getDriver();
+        LOGGER.info("DRIVER " + driver);
     }
 
     @AfterMethod
@@ -35,6 +37,6 @@ public class BaseTest {
     @AfterTest
     public void aftertest() {
         LOGGER.info("AFTER TEST quit driver");
-        DriverManager.quitDriver();
+//        DriverManager.quitDriver();
     }
 }

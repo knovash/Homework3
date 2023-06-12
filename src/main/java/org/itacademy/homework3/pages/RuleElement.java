@@ -21,18 +21,8 @@ public class RuleElement {
 
     // методы из пэйджи
 
-
-
     public WebElement getElementRule() {
-//        WaitUtils.waitForVisibility(alexstarPage.getRule());
-//        log.info("DISPLAYED getButtonAlexstar: " + alexstarPage.getRule().isDisplayed());
-
         WebElement element = alexstarPage.getRule();
-
-//        WaitUtils.waitForVisibility(driver, driver.findElement(By.xpath(path)));
-//        WebElement sss = driver.findElement(By.xpath(path));
-
         return alexstarPage.getRule();
-
-
-}}
+    }
+}

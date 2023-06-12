@@ -9,6 +9,7 @@ import org.itacademy.homework3.utils.DataProviderCatalog;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ import java.time.Duration;
 
 @Log4j2
 @Listeners
-public class CatalogTest extends BaseTest {
+public class CatalogCompareTest extends BaseTest {
 
     private CatalogSteps catalogSteps;
 
@@ -27,15 +28,21 @@ public class CatalogTest extends BaseTest {
         catalogSteps = new CatalogSteps(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
+    @DataProvider(name = "item", parallel = false) // если нет имени то определяется по имени метода
+    public Object[][] item() // имя метода дата провайдера
+    {
+        return new Object[][]{{"iphone 12"}};
+    }
+
     @Description("Search item in catalog and compare first 10 items")
     @Test(testName = "CheckCompare",
-            dataProvider = "catalogitems",
-            dataProviderClass = DataProviderCatalog.class,
+            dataProvider = "item",
             description = "Search item in catalog and compare first 10 items")
-    public void verifyCatalogTest(CatalogItem item) {
+    public void verifyCatalogTest(String item) {
         log.info("CheckCompare " + driver);
         catalogSteps.clickButtonCatalog();
-        catalogSteps.enterFieldSearch(item.getName());
+        catalogSteps.enterFieldSearch(item);
         catalogSteps.switchToFrame(driver);
         catalogSteps.clickCheckboxes();
         catalogSteps.clickCompare();

@@ -26,13 +26,13 @@ public class Main {
         addresses.setAddresses(addressList);
         GenerateJSON.objectToFile(addresses, "addresses.json");
 
-        List<CatalogItem> catalogList = new ArrayList<>();
-        catalogList.add(new CatalogItem("телевизор"));
-//        catalogList.add(new CatalogItem("телефон"));
-//        catalogList.add(new CatalogItem("ноутбук"));
-        CatalogList catalogItems = new CatalogList();
-        catalogItems.setItems(catalogList);
-        GenerateJSON.objectToFile(catalogItems, "catalogitems.json");
+//        List<CatalogItem> catalogList = new ArrayList<>();
+//        catalogList.add(new CatalogItem("телевизор"));
+////        catalogList.add(new CatalogItem("телефон"));
+////        catalogList.add(new CatalogItem("ноутбук"));
+//        CatalogList catalogItems = new CatalogList();
+//        catalogItems.setItems(catalogList);
+//        GenerateJSON.objectToFile(catalogItems, "catalogitems.json");
 
 
     }

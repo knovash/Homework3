@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CatalogList {
+public class CatalogItemList {
 
     List<CatalogItem> items;
 }

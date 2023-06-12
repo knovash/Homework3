@@ -1,5 +1,6 @@
 package org.itacademy.homework3.pages;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,6 +36,11 @@ public class CatalogPage extends BasePage {
     @FindBy(xpath = "//*[@class='b-offers-title' and text()='Сравнение товаров']")
     private WebElement titleCompare;
 
+    @FindBy(xpath = "//*[@class='search__result']")
+    private List<WebElement> listSearchResultElements;
+
+
+
     public WebElement getButtonCatalog() {
         return buttonCatalog;
     }
@@ -62,4 +68,9 @@ public class CatalogPage extends BasePage {
     public WebElement getTitleCompare() {
         return titleCompare;
     }
+
+    public List<WebElement> getListSearchResultElements() {
+        return listSearchResultElements;
+    }
+
 }
