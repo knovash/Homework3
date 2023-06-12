@@ -29,18 +29,18 @@ public class SearchTest extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @Description ("Search Menu Item and chech in in result items list")
+    @Description ("@ Search Menu Item, and check it in result items list")
     @Issue("wrong search results")
     @Test(testName = "CheckSearch",
             dataProvider = "menuItems",
             dataProviderClass = DataProviderSearch.class,
-            description = "Verifys that search box works")
+            description = "Search Menu Item, and check it in result items list")
     public void verifySearchTest(MenuItem menuItem) {
         log.info("TEST SEARCH " + driver);
         searchSteps.clickSearchButton();
         searchSteps.enterSearchFieldText(menuItem.getName());
         searchSteps.clickSearchStartButton();
-        Assert.assertTrue(searchSteps.getAssertResult(menuItem.getName()), "NOT SUCCESS");
+        Assert.assertTrue(searchSteps.getAssertResult(menuItem.getName()), "Not a menu item.");
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 }

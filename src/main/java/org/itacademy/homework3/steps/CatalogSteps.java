@@ -90,7 +90,16 @@ public class CatalogSteps {
         WaitUtils.waitForVisibility(catalogPage.getCheckbox());
         log.info("DISPLAYED getButtonInNews: " + catalogPage.getCheckbox().isDisplayed());
         log.info("HTML getButtonInNews: " + catalogPage.getCheckbox().getAttribute("outerHTML"));
-        catalogPage.getCheckboxs().stream().forEach(webElement -> webElement.click());
+        catalogPage.getCheckboxs().stream().forEach(webElement -> {
+            log.info("BOX SELECTED " + webElement.isSelected());
+            webElement.click();
+            log.info("BOX SELECTED " + webElement.isSelected());
+        });
+    }
+
+    public List<WebElement> getCheckboxs() {
+        WaitUtils.waitForVisibility(catalogPage.getCheckbox());
+        return catalogPage.getCheckboxs();
     }
 
     public void clickCompare() {
@@ -100,7 +109,18 @@ public class CatalogSteps {
         catalogPage.getButtonCompare().click();
     }
 
+    public void getCheckbox() {
+        WaitUtils.waitForVisibility(catalogPage.getCheckboxreal());
+        log.info("DISPLAYED getCheckbox: " + catalogPage.getCheckboxreal().isDisplayed());
+        log.info("SELECTED getCheckbox: " + catalogPage.getCheckboxreal().isSelected());
+        log.info("HTML getCheckbox: " + catalogPage.getCheckboxreal().getAttribute("outerHTML"));
+    }
 
-
+    public Boolean checkTitleCompare() {
+        WaitUtils.waitForVisibility(catalogPage.getTitleCompare());
+        log.info("DISPLAYED getCheckbox: " + catalogPage.getTitleCompare().isDisplayed());
+        log.info("HTML getCheckbox: " + catalogPage.getTitleCompare().getAttribute("outerHTML"));
+        return catalogPage.getTitleCompare().isDisplayed();
+    }
 
 }

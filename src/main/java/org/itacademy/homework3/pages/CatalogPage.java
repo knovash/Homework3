@@ -38,7 +38,12 @@ public class CatalogPage extends BasePage {
     private WebElement iframe;
 
     @FindBy(xpath = "//span[@class='i-checkbox__faux']")
+//    @FindBy(xpath = "//input[@class='i-checkbox__real']")
     private WebElement checkbox;
+
+//    @FindBy(xpath = "//span[@class='i-checkbox__faux']")
+    @FindBy(xpath = "//input[@type='checkbox']")
+    private WebElement checkboxreal;
 
     @FindBy(xpath = "//span[@class='i-checkbox__faux']")
     private List<WebElement> checkboxs;
@@ -46,7 +51,8 @@ public class CatalogPage extends BasePage {
     @FindBy(xpath = "//div[@class='compare-button compare-button_visible']")
     private WebElement buttonCompare;
 
-
+    @FindBy(xpath = "//*[@class='b-offers-title' and text()='Сравнение товаров']")
+    private WebElement titleCompare;
 
 
     public WebElement getButtonCatalog() {
@@ -87,5 +93,13 @@ public class CatalogPage extends BasePage {
 
     public WebElement getButtonCompare() {
         return buttonCompare;
+    }
+
+    public WebElement getCheckboxreal() {
+        return checkboxreal;
+    }
+
+    public WebElement getTitleCompare() {
+        return titleCompare;
     }
 }

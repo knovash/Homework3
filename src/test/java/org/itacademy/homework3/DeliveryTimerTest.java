@@ -36,11 +36,11 @@ public class DeliveryTimerTest extends BaseTest {
         return new Object[][]{{10}, {50}, {100}, {500}};
     }
 
-    @Description("Verifys time to show addres check")
+    @Description("@ Verifys time for show address check")
     @Issue("dont show reasult")
     @Test(testName = "timers",
             dataProvider = "timers",
-            description = "Verifys delivery addressses", enabled = true)
+            description = "Verifys time for show address check", enabled = true)
     public void verifyDeliveryTest(int time) {
         log.info("TEST DELIVERY" + driver);
         deliverySteps.enterFieldStreet("Кульман");
@@ -54,7 +54,7 @@ public class DeliveryTimerTest extends BaseTest {
 
         }
         String result = deliverySteps.status();
-        Assert.assertEquals(result, "success", "NOT SUCCESS wrong address ");
+        Assert.assertEquals(result, "success", "not enough time to check the address.");
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 }

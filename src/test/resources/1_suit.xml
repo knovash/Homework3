@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Verify search box work">
+<suite name="Suite 1. DonerKing tests">
 
     <listeners>
         <listener class-name="org.itacademy.homework3.utils.AllureListener"></listener>
     </listeners>
 
-    <test name="Donerking tests">
+    <test name="Test. Donerking">
         <classes>
             <class name="org.itacademy.homework3.DeliveryTimerTest"/>
             <class name="org.itacademy.homework3.SearchTest"/>
