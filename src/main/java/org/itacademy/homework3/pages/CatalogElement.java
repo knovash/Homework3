@@ -1,19 +1,13 @@
 package org.itacademy.homework3.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 public class CatalogElement extends BaseElement {
 
     public CatalogElement(WebElement root){
         super(root);
     }
-
 
     @FindBy(xpath = ".//*[@class='product__title']")
     private WebElement productTitle;
