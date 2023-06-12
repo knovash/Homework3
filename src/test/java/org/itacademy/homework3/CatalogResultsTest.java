@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.models.CatalogItem;
 import org.itacademy.homework3.pages.CatalogElement;
+import org.itacademy.homework3.steps.CatalogElementSteps;
 import org.itacademy.homework3.steps.CatalogSteps;
 import org.itacademy.homework3.utils.CatalogItemsToJSON;
 import org.itacademy.homework3.utils.Config;
@@ -19,12 +20,14 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Listeners
 public class CatalogResultsTest extends BaseTest {
 
     private CatalogSteps catalogSteps;
+    private CatalogElementSteps catalogElementSteps;
 
     @BeforeMethod
     public void beforemethod() {
@@ -49,11 +52,30 @@ public class CatalogResultsTest extends BaseTest {
         catalogSteps.enterFieldSearch(item);
         catalogSteps.switchToFrame(driver);
         List<WebElement> webList = catalogSteps.getListResultElements();
-        log.info("WEB LIST " + webList);
-        List<CatalogItem> objList = catalogSteps.webListToObjectList(webList);
-        log.info("CATALOG ITEM OBJECTS LIST");
-        objList.stream().forEach(catalogItem -> log.info(catalogItem));
-        CatalogItemsToJSON.toJson(objList, "src/main/resources/data/catalogitems.json");
+
+        List<CatalogElement> listCatEl =
+                webList.stream()
+                        .peek(x1 -> System.out.println("WEB " + x1.getAttribute("outerHTML")))
+                        .map(webElement -> new CatalogElement(webElement, driver))
+                        .collect(Collectors.toList());
+
+        listCatEl.stream()
+                .forEach(x -> {
+                    log.info(x.getProductTitle().getText());
+                    log.info(x.getProductPrice().getText());
+                    log.info(x.getProductOffers().getText());
+                });
+//
+//        List<CatalogItem> objList = catalogElementSteps.webListToObjectList(listCatEl);
+//
+//
+//        CatalogItemsToJSON.toJson(objList, "src/main/resources/data/catalogitems.json");
+
+//
+////        List<CatalogItem> objList = catalogSteps.webListToObjectList(webList);
+//        log.info("CATALOG ITEM OBJECTS LIST");
+//        objList.stream().forEach(catalogItem -> log.info(catalogItem));
+//        CatalogItemsToJSON.toJson(objList, "src/main/resources/data/catalogitems.json");
 //        Assert.assertTrue(catalogSteps.checkTitleCompare(),"Title compare not displayed");
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат
     }
