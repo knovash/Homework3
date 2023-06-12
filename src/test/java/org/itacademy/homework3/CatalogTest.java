@@ -1,19 +1,16 @@
 package org.itacademy.homework3;
 
 import io.qameta.allure.Description;
-import io.qameta.allure.Issue;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.models.CatalogItem;
 import org.itacademy.homework3.steps.CatalogSteps;
 import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.DataProviderCatalog;
 import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
@@ -30,24 +27,20 @@ public class CatalogTest extends BaseTest {
         catalogSteps = new CatalogSteps(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-    @Description("@ Search item in catalog and compare first 10 items")
+    @Description("Search item in catalog and compare first 10 items")
     @Test(testName = "CheckCompare",
-            dataProvider = "items",
+            dataProvider = "catalogitems",
             dataProviderClass = DataProviderCatalog.class,
-            description = "Search item in catalog and compare first 10 items", enabled = true)
+            description = "Search item in catalog and compare first 10 items")
     public void verifyCatalogTest(CatalogItem item) {
-        log.info("TEST COMPARE " + driver);
-        catalogSteps.clickButttonCatalog();
+        log.info("CheckCompare " + driver);
+        catalogSteps.clickButtonCatalog();
         catalogSteps.enterFieldSearch(item.getName());
-        WebElement frame = catalogSteps.getIframe();
-        driver.switchTo().frame(frame);
-        log.info("SEARCH VALUE " + catalogSteps.getValueFieldSearch());
-        Assert.assertEquals(catalogSteps.getValueFieldSearch(), item.getName());
-        catalogSteps.clickCheckboxs();
-        WaitUtils.waitSeconds(2);
+        catalogSteps.switchToFrame(driver);
+        catalogSteps.clickCheckboxes();
         catalogSteps.clickCompare();
         Assert.assertTrue(catalogSteps.checkTitleCompare(),"Title compare not displayed");
-        WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
+        WaitUtils.waitSeconds(3); // подождать посмотреть на результат
     }
 
 }

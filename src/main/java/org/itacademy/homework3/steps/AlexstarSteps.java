@@ -3,11 +3,10 @@ package org.itacademy.homework3.steps;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.models.Rule;
 import org.itacademy.homework3.pages.AlexstarPage;
-import org.itacademy.homework3.pages.RuleElement;
+import org.itacademy.homework3.utils.Config;
 import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,16 +34,16 @@ public class AlexstarSteps {
         alexstarPage.getButtonEnterYandex().click();
     }
 
-    public void enterLogin(String login) {
+    public void enterLogin() {
         WaitUtils.waitForVisibility(alexstarPage.getFieldLogin());
         log.info("DISPLAYED getFieldLogin: " + alexstarPage.getFieldLogin().isDisplayed());
-        alexstarPage.getFieldLogin().sendKeys(login);
+        alexstarPage.getFieldLogin().sendKeys(Config.getYandexLogin());
     }
 
-    public void enterPassword(String password) {
+    public void enterPassword() {
         WaitUtils.waitForVisibility(alexstarPage.getFieldPassword());
         log.info("DISPLAYED getFieldPassword: " + alexstarPage.getFieldPassword().isDisplayed());
-        alexstarPage.getFieldPassword().sendKeys(password);
+        alexstarPage.getFieldPassword().sendKeys(Config.getYandexPassword());
     }
 
     public void clickButttonSignIn() {
@@ -55,14 +54,13 @@ public class AlexstarSteps {
 
     public void clickButttonAuth() {
         try {
-
-
             if (alexstarPage.getButtonSignIn().isDisplayed() == true) {
                 log.info("CLICK AUTH");
                 alexstarPage.getButtonAuth().click();
             }
+        } catch (NoSuchElementException e) {
+            log.info("NO AUTH");
         }
-        catch (NoSuchElementException e){log.info("NO AUTH");}
     }
 
     public void clickButtonRuleRollDown() {
@@ -71,44 +69,25 @@ public class AlexstarSteps {
         alexstarPage.getButtonRuleRollDown().click();
     }
 
-    public Rule getElementRule() {
-        SearchContext context = alexstarPage.getRule();
-        Rule ruleObject = new Rule();
-        log.info("CONTEXT: " + context);
+    public Rule getElementRule(WebElement topElement) {
+        Rule object = new Rule();
+        log.info("CONTEXT: " + topElement);
         WebElement element;
-        //        log.info("OUTER " + element.getAttribute("outerHTML"));
-        element = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
-        log.info("ELEMENT get value: " + element.getAttribute("value"));
-        ruleObject.setActionFrase(element.getAttribute("value"));
-        element = context.findElement(By.xpath(".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input"));
-        log.info("ELEMENT get value: " + element.getAttribute("value"));
-        ruleObject.setResponse(element.getAttribute("value"));
-        element = context.findElement(By.xpath(".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input"));
-        log.info("ELEMENT get value: " + element.getAttribute("value"));
-        ruleObject.setWebHook(element.getAttribute("value"));
-        return ruleObject;
+        element = topElement.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
+        object.setActionFrase(element.getAttribute("value"));
+        element = topElement.findElement(By.xpath(".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input"));
+        object.setResponse(element.getAttribute("value"));
+        element = topElement.findElement(By.xpath(".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input"));
+        object.setWebHook(element.getAttribute("value"));
+        return object;
     }
 
     public List<Rule> getElementsRules() {
-        Rule ruleObject = new Rule();
         List<WebElement> elements = alexstarPage.getRules();
-        List<Rule> ruleList =
-             elements.stream().map(context -> {
-             Rule object = new Rule();
-             log.info("CONTEXT: " + context);
-             WebElement element;
-             element = context.findElement(By.xpath(".//label[contains(text(), 'Активационная фраза')]/following-sibling::div[1]/input"));
-             log.info("ELEMENT get value: " + element.getAttribute("value"));
-             object.setActionFrase(element.getAttribute("value"));
-             element = context.findElement(By.xpath(".//label[contains(text(), 'Ответ Кузи')]/following-sibling::div[1]/input"));
-             log.info("ELEMENT get value: " + element.getAttribute("value"));
-             object.setResponse(element.getAttribute("value"));
-             element = context.findElement(By.xpath(".//label[contains(text(), 'URL управления устройством, ')]/following-sibling::input"));
-             log.info("ELEMENT get value: " + element.getAttribute("value"));
-             object.setWebHook(element.getAttribute("value"));
-             return object;
-                        })
-             .collect(Collectors.toList());
+        List<Rule> ruleList = elements
+                .stream()
+                .map(context -> getElementRule(context))
+                .collect(Collectors.toList());
         return ruleList;
     }
 

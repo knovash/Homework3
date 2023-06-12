@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 @Log4j2
-public class DeliveryTest extends BaseTest {
+public class DeliveryAddressTest extends BaseTest {
 
     private DeliverySteps deliverySteps;
 

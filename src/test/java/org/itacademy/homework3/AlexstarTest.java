@@ -24,7 +24,7 @@ public class AlexstarTest extends BaseTest {
         log.info("BEFORE METHOD get page " + Config.getPageOnliner());
         driver.get(Config.getPageAlexstar());
         alexstarSteps = new AlexstarSteps(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     @Test(testName = "CheckAlexstar",
@@ -32,19 +32,15 @@ public class AlexstarTest extends BaseTest {
             description = "Verifys alexstar addressses", enabled = true)
     public void verifyAlexstarTest() {
         log.info("TEST ALEXSTAR" + driver);
-        alexstarSteps.clickButttonToSettings();
-        alexstarSteps.clickButttonEnterYandex();
-        alexstarSteps.enterLogin("novashki");
+        alexstarSteps.clickButttonToSettings(); // кнопка перейти к настройкам
+        alexstarSteps.clickButttonEnterYandex(); // кнопка войти через яндекс
+        alexstarSteps.enterLogin();
         alexstarSteps.clickButttonSignIn();
-        alexstarSteps.enterPassword("Darthvader1981");
+        alexstarSteps.enterPassword();
         alexstarSteps.clickButttonSignIn();
-//        alexstarSteps.clickButtonRuleRollDown();
-//        Rule ruleObject = alexstarSteps.getElementRule();
-//        log.info("RULE OBJECT: " + ruleObject);
-        List<Rule> list = alexstarSteps.getElementsRules();
-        list.stream().forEach(rule -> { log.info(rule);});
-//        log.info("RULE OBJECT: " + list);
-        RulesToJSON.toJson(list);
+        List<Rule> list = alexstarSteps.getElementsRules(); // получить лист list объектов правил со страницы
+        list.stream().forEach(rule -> { log.info(rule);}); // вывод в лог всех объектов правил
+        RulesToJSON.toJson(list, "src/main/resources/data/rules.json"); // лист передаем в метод конвертации объектов в json в файл
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат поиска
     }
 

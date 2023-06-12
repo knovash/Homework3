@@ -15,8 +15,9 @@ public class Config {
     private static String pageSearch;
     private static String pageDelivery;
     private static String pageOnliner;
-
     private static String pageAlexstar;
+    private static String yandexLogin;
+    private static String yandexPassword;
 
     public static void getProperties() {
         Properties properties = new Properties();
@@ -31,6 +32,8 @@ public class Config {
             pageDelivery = properties.getProperty("page-delivery");
             pageOnliner = properties.getProperty("page-onliner");
             pageAlexstar = properties.getProperty("page-alexstar");
+            yandexLogin = properties.getProperty("yandex-login");
+            yandexPassword = properties.getProperty("yandex-password");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -54,5 +57,13 @@ public class Config {
 
     public static String getPageAlexstar() {
         return pageAlexstar;
+    }
+
+    public static String getYandexLogin() {
+        return yandexLogin;
+    }
+
+    public static String getYandexPassword() {
+        return yandexPassword;
     }
 }

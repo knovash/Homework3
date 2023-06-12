@@ -12,7 +12,7 @@ public class DataProviderCatalog {
 
     private static final Logger LOGGER = LogManager.getLogger(DataProviderCatalog.class);
 
-    @DataProvider(name = "items")
+    @DataProvider(name = "catalogitems")
     public Object[][] catalogItems()
     {
         CatalogList catalogList = GetFromJSON.get("data/catalogitems.json", CatalogList.class);

@@ -32,9 +32,9 @@ public class AlexstarCreateRuleTest extends BaseTest {
         log.info("TEST ALEXSTAR" + driver);
         alexstarSteps.clickButttonToSettings();
         alexstarSteps.clickButttonEnterYandex();
-        alexstarSteps.enterLogin("novashki");
+        alexstarSteps.enterLogin();
         alexstarSteps.clickButttonSignIn();
-        alexstarSteps.enterPassword("Darthvader1981");
+        alexstarSteps.enterPassword();
         alexstarSteps.clickButttonSignIn();
         alexstarSteps.clickButttonAuth();
         alexstarSteps.clickButttonCreateRuleHttp();

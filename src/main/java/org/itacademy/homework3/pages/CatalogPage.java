@@ -20,33 +20,14 @@ public class CatalogPage extends BasePage {
     @FindBy(xpath = "//input[@class='fast-search__input']")
     private WebElement fieldFastSearch;
 
-    @FindBy(xpath = "//input[@class='search__input']")
-    private WebElement fieldSearch;
-
-    @FindBy(xpath = "//a[@class='product__description']")
-    private List<WebElement> productDescription;
-
-//    result__item result__item_product
-//    @FindBy(xpath = "//*[@class='search__result search__result_active']//div[@class='result__wrapper']")
-    @FindBy(xpath = "//*[@class='result__item result__item_product'][1]")
-    private WebElement resultActive;
-
-    @FindBy(xpath = ".//*[contains(text(), 'в новостях')]")
-    private WebElement buttonInNews;
-
     @FindBy(xpath = "//iframe[@class='modal-iframe']")
     private WebElement iframe;
 
     @FindBy(xpath = "//span[@class='i-checkbox__faux']")
-//    @FindBy(xpath = "//input[@class='i-checkbox__real']")
     private WebElement checkbox;
 
-//    @FindBy(xpath = "//span[@class='i-checkbox__faux']")
-    @FindBy(xpath = "//input[@type='checkbox']")
-    private WebElement checkboxreal;
-
     @FindBy(xpath = "//span[@class='i-checkbox__faux']")
-    private List<WebElement> checkboxs;
+    private List<WebElement> checkboxes;
 
     @FindBy(xpath = "//div[@class='compare-button compare-button_visible']")
     private WebElement buttonCompare;
@@ -54,29 +35,12 @@ public class CatalogPage extends BasePage {
     @FindBy(xpath = "//*[@class='b-offers-title' and text()='Сравнение товаров']")
     private WebElement titleCompare;
 
-
     public WebElement getButtonCatalog() {
         return buttonCatalog;
     }
 
     public WebElement getFieldFastSearch() {
         return fieldFastSearch;
-    }
-
-    public WebElement getFieldSearch() {
-        return fieldSearch;
-    }
-
-    public List<WebElement> getProductDescription() {
-        return productDescription;
-    }
-
-    public WebElement getResultActive() {
-        return resultActive;
-    }
-
-    public WebElement getButtonInNews() {
-        return buttonInNews;
     }
 
     public WebElement getIframe() {
@@ -87,16 +51,12 @@ public class CatalogPage extends BasePage {
         return checkbox;
     }
 
-    public List<WebElement> getCheckboxs() {
-        return checkboxs;
+    public List<WebElement> getCheckboxes() {
+        return checkboxes;
     }
 
     public WebElement getButtonCompare() {
         return buttonCompare;
-    }
-
-    public WebElement getCheckboxreal() {
-        return checkboxreal;
     }
 
     public WebElement getTitleCompare() {

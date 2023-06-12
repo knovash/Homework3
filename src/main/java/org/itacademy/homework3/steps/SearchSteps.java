@@ -10,58 +10,43 @@ import org.testng.asserts.SoftAssert;
 @Log4j2
 public class SearchSteps {
 
-    private SearchPage searchPage; // создаем поле пэйджи
+    private SearchPage searchPage;
 
-    // конструктор создания класса степов
     public SearchSteps(WebDriver driver) {
         searchPage = new SearchPage(driver);
     }
 
-    // методы из пэйджи
-
-    @Step("Click serch button for show search field")
+    @Step("Click search button for show search field")
     public void clickSearchButton() {
-        log.info("CLICK SEARCH BUTTON");
+        log.info("Click search button for show search field");
         WaitUtils.waitForVisibility(searchPage.getSearchButton());
         searchPage.getSearchButton().click();
     }
 
     @Step("Enter text in search field")
     public void enterSearchFieldText(String text) {
-        log.info("SEARCH FIELD");
+        log.info("Enter text in search field");
         WaitUtils.waitForVisibility(searchPage.getSearchField());
-        log.info("SEARCH FIELD DISPLAYED: " + searchPage.getSearchField().isDisplayed());
         searchPage.getSearchField().sendKeys(text);
     }
 
     @Step("Click start search button")
     public void clickSearchStartButton() {
-        log.info("CLICK SEARCH START");
+        log.info("Click start search button");
         WaitUtils.waitForVisibility(searchPage.getSearchStartButton());
         searchPage.getSearchStartButton().click();
     }
 
-    @Step("Get result list of items")
-    public Boolean getAssertResult(String item) {
+    @Step("Get result list of menu items")
+    public SoftAssert getAssert(String menuItem) {
+        log.info("Get result list of menu items");
         SoftAssert sa = new SoftAssert();
-//        sa.assertFalse(resultItems.isEmpty(), "RESULT EMPTY");
-        sa.assertFalse(searchPage.getResultItems().isEmpty(), "RESULT EMPTY");
-
-        Boolean result = false;
-        try {
-//            resultItems.stream()
-            searchPage.getResultItems().stream()
-                    .map(w -> w.getText().toLowerCase())
-                    .peek(t -> sa.assertTrue(t.contains(item), "ЭТО НЕ " + item + " " + t))
-                    .forEach(x -> log.info(x));
-            sa.assertAll();
-            result = true;
-        } catch (AssertionError error) {
-            result = false;
-            log.info("ERRORR ASSERT");
-        }
-        return result;
+        sa.assertFalse(searchPage.getResultItems().isEmpty(), "RESULT LIST IS EMPTY");
+        searchPage.getResultItems().stream()
+                .map(webElement -> webElement.getText().toLowerCase())
+                .peek(text -> sa.assertTrue(text.contains(menuItem), "IT IS NOT A " + menuItem))
+                .forEach(x -> log.info(x));
+        sa.assertAll();
+        return sa;
     }
-
-
 }

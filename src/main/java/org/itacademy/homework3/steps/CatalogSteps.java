@@ -6,121 +6,50 @@ import org.itacademy.homework3.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 @Log4j2
 public class CatalogSteps {
 
-    private CatalogPage catalogPage; // создаем поле пэйджи
+    private CatalogPage catalogPage;
 
-    // конструктор создания класса степов
     public CatalogSteps(WebDriver driver) {
         catalogPage = new CatalogPage(driver);
     }
 
-    // методы из пэйджи
-
-    public void clickButttonCatalog() {
+    public void clickButtonCatalog() {
+        log.info("getButtonCatalog click");
         WaitUtils.waitForVisibility(catalogPage.getButtonCatalog());
-        log.info("DISPLAYED getButtonCatalog: " + catalogPage.getButtonCatalog().isDisplayed());
         catalogPage.getButtonCatalog().click();
     }
 
     public void enterFieldSearch(String text) {
+        log.info("getFieldFastSearch");
         WaitUtils.waitForVisibility(catalogPage.getFieldFastSearch());
-        log.info("DISPLAYED getFieldSearch: " + catalogPage.getFieldFastSearch().isDisplayed());
-        log.info("HTML getFieldSearch: " + catalogPage.getFieldFastSearch().getAttribute("outerHTML"));
+        log.info("HTML getFieldFastSearch " + catalogPage.getFieldFastSearch().getAttribute("outerHTML"));
         catalogPage.getFieldFastSearch().sendKeys(text);
     }
 
-    public String getValueFieldFastSearch() {
-        WaitUtils.waitForVisibility(catalogPage.getFieldFastSearch());
-        log.info("DISPLAYED getFieldSearch: " + catalogPage.getFieldFastSearch().isDisplayed());
-        return catalogPage.getFieldFastSearch().getAttribute("value");
+    public void switchToFrame(WebDriver driver) {
+        log.info("getIframe switchTo");
+        WebElement frame = catalogPage.getIframe();
+        driver.switchTo().frame(frame);
     }
 
-    public String getValueFieldSearch() {
-        WaitUtils.waitForVisibility(catalogPage.getFieldSearch());
-        log.info("DISPLAYED getFieldSearch: " + catalogPage.getFieldSearch().isDisplayed());
-        return catalogPage.getFieldSearch().getAttribute("value");
-    }
-
-    public List<WebElement> getProductDescriptions() {
-//        WaitUtils.waitForVisibility(catalogPage.getProductDescription());
-//        log.info("DISPLAYED getFieldSearch: " + catalogPage.getProductDescription().isDisplayed());
-        return catalogPage.getProductDescription();
-    }
-
-
-    public WebElement getResultActive() {
-        WaitUtils.waitForVisibility(catalogPage.getResultActive());
-        log.info("DISPLAYED getResultActive: " + catalogPage.getResultActive().isDisplayed());
-        return catalogPage.getResultActive();
-    }
-
-    public void clickResultActive() {
-        WaitUtils.waitForVisibility(catalogPage.getResultActive());
-        log.info("DISPLAYED getResultActive: " + catalogPage.getResultActive().isDisplayed());
-        log.info("HTML getResultActive: " + catalogPage.getResultActive().getAttribute("outerHTML"));
-        catalogPage.getResultActive().click();
-    }
-
-    public void clickInNews() {
-        WaitUtils.waitForVisibility(catalogPage.getButtonInNews());
-        log.info("DISPLAYED getButtonInNews: " + catalogPage.getButtonInNews().isDisplayed());
-        log.info("HTML getButtonInNews: " + catalogPage.getButtonInNews().getAttribute("outerHTML"));
-        catalogPage.getButtonInNews().click();
-    }
-
-    public WebElement getIframe() {
-        WaitUtils.waitForVisibility(catalogPage.getIframe());
-        log.info("DISPLAYED getButtonInNews: " + catalogPage.getIframe().isDisplayed());
-        log.info("HTML getButtonInNews: " + catalogPage.getIframe().getAttribute("outerHTML"));
-        return catalogPage.getIframe();
-    }
-
-    public void clickCheckbox() {
+    public void clickCheckboxes() {
+        log.info("getCheckbox click");
         WaitUtils.waitForVisibility(catalogPage.getCheckbox());
-        log.info("DISPLAYED getButtonInNews: " + catalogPage.getCheckbox().isDisplayed());
-        log.info("HTML getButtonInNews: " + catalogPage.getCheckbox().getAttribute("outerHTML"));
-        catalogPage.getCheckbox().click();
-    }
-
-    public void clickCheckboxs() {
-        WaitUtils.waitForVisibility(catalogPage.getCheckbox());
-        log.info("DISPLAYED getButtonInNews: " + catalogPage.getCheckbox().isDisplayed());
-        log.info("HTML getButtonInNews: " + catalogPage.getCheckbox().getAttribute("outerHTML"));
-        catalogPage.getCheckboxs().stream().forEach(webElement -> {
-            log.info("BOX SELECTED " + webElement.isSelected());
-            webElement.click();
-            log.info("BOX SELECTED " + webElement.isSelected());
-        });
-    }
-
-    public List<WebElement> getCheckboxs() {
-        WaitUtils.waitForVisibility(catalogPage.getCheckbox());
-        return catalogPage.getCheckboxs();
+        catalogPage.getCheckboxes().stream().forEach(checkbox -> checkbox.click());
+        WaitUtils.waitSeconds(2);
     }
 
     public void clickCompare() {
+        log.info("getButtonCompare click");
         WaitUtils.waitForVisibility(catalogPage.getButtonCompare());
-        log.info("DISPLAYED getButtonInNews: " + catalogPage.getButtonCompare().isDisplayed());
-        log.info("HTML getButtonInNews: " + catalogPage.getButtonCompare().getAttribute("outerHTML"));
         catalogPage.getButtonCompare().click();
     }
 
-    public void getCheckbox() {
-        WaitUtils.waitForVisibility(catalogPage.getCheckboxreal());
-        log.info("DISPLAYED getCheckbox: " + catalogPage.getCheckboxreal().isDisplayed());
-        log.info("SELECTED getCheckbox: " + catalogPage.getCheckboxreal().isSelected());
-        log.info("HTML getCheckbox: " + catalogPage.getCheckboxreal().getAttribute("outerHTML"));
-    }
-
     public Boolean checkTitleCompare() {
+        log.info("getTitleCompare isDisplayed");
         WaitUtils.waitForVisibility(catalogPage.getTitleCompare());
-        log.info("DISPLAYED getCheckbox: " + catalogPage.getTitleCompare().isDisplayed());
-        log.info("HTML getCheckbox: " + catalogPage.getTitleCompare().getAttribute("outerHTML"));
         return catalogPage.getTitleCompare().isDisplayed();
     }
-
 }

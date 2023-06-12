@@ -35,6 +35,6 @@ public class BaseTest {
     @AfterTest
     public void aftertest() {
         LOGGER.info("AFTER TEST quit driver");
-//        DriverManager.quitDriver();
+        DriverManager.quitDriver();
     }
 }

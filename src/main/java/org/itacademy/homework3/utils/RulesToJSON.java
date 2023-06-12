@@ -7,9 +7,9 @@ import java.util.List;
 
 public class RulesToJSON {
 
-    public static void toJson(List<Rule> list) {
+    public static void toJson(List<Rule> list, String fileName) {
         RulesList rulesList = new RulesList();
         rulesList.setRules(list);
-        GenerateJSON.objectToFile(rulesList, "src/main/resources/data/rules.json");
+        GenerateJSON.objectToFile(rulesList, fileName);
     }
 }

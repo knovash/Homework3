@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite 1. DonerKing tests">
-
+<suite name="Suite 1">
     <listeners>
         <listener class-name="org.itacademy.homework3.utils.AllureListener"></listener>
     </listeners>
-
-    <test name="Test. Donerking">
+    <test name="Test 1">
         <classes>
-            <class name="org.itacademy.homework3.DeliveryTimerTest"/>
             <class name="org.itacademy.homework3.SearchTest"/>
+            <class name="org.itacademy.homework3.DeliveryDelayTest"/>
+            <class name="org.itacademy.homework3.CatalogTest"/>
         </classes>
     </test>
 </suite>
