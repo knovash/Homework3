@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.models.CatalogItem;
 import org.itacademy.homework3.pages.CatalogElement;
-import org.itacademy.homework3.pages.CatalogPageComponent;
 import org.itacademy.homework3.steps.CatalogSteps;
 import org.itacademy.homework3.utils.CatalogItemsToJSON;
 import org.itacademy.homework3.utils.Config;
@@ -59,6 +58,12 @@ public class CatalogResultsTest extends BaseTest {
 
         // to CatalogItem objects list (title,price,offers)
         List<CatalogItem> objList = catalogSteps.webelementsToObjects(catList);
+
+        // 2 in 1
+//        List<CatalogItem> objList2 = webList.stream()
+//                .map(webElement -> new CatalogElement(webElement))
+//                .map(catalogElement -> catalogSteps.elementToObject(catalogElement))
+//                .collect(Collectors.toList());
 
         log.info("\nCATALOG ITEM OBJECTS LIST");
         objList.stream().forEach(catalogItem -> log.info("\n" + catalogItem));
