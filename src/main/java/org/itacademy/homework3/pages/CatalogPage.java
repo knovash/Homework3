@@ -8,8 +8,6 @@ import java.util.List;
 
 public class CatalogPage extends BasePage {
 
-    private WebDriver driver;
-
     public CatalogPage(WebDriver driver) {
         super(driver);
     }

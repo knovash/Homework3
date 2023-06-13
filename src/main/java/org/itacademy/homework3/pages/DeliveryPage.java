@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class DeliveryPage extends BasePage {
 
-    private WebDriver driver;
-
     public DeliveryPage(WebDriver driver) {
         super(driver);
     }
@@ -26,10 +24,6 @@ public class DeliveryPage extends BasePage {
 
     @FindBy(xpath = "//div[@id='delivery_status']")
     private WebElement status;
-
-    public WebDriver getDriver() {
-        return driver;
-    }
 
     public WebElement getFieldCity() {
         return fieldCity;

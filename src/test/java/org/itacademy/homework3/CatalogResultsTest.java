@@ -36,7 +36,7 @@ public class CatalogResultsTest extends BaseTest {
     @DataProvider(name = "item", parallel = false) // если нет имени то определяется по имени метода
     public Object[][] item() // имя метода дата провайдера
     {
-        return new Object[][]{{"iphone 12"}};
+        return new Object[][]{{"iphone 13"}};
     }
 
     @Description("Results to WebElements to CatalogElements to Objects to JSON")
@@ -53,8 +53,10 @@ public class CatalogResultsTest extends BaseTest {
 
         // to CatalogElements (WebElements) list
         List<CatalogElement> catList = webList.stream()
-                .map(webElement -> new CatalogElement(webElement, driver))
+                .map(webElement -> new CatalogElement(webElement))
                 .collect(Collectors.toList());
+
+
 
         // to CatalogItem objects list (title,price,offers)
         List<CatalogItem> objList = catalogSteps.webelementsToObjects(catList);

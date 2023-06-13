@@ -10,8 +10,6 @@ import java.util.List;
 @Log4j2
 public class AlexstarPage extends BasePage {
 
-    private WebDriver driver;
-
     public AlexstarPage(WebDriver driver) {
         super(driver);
     }
@@ -72,10 +70,6 @@ public class AlexstarPage extends BasePage {
     @FindBy(xpath = ".//label[contains(text(), 'Проверять SSL сертификат сервера')]/..//input")
 //    @FindBy(xpath = ".//label[contains(text(), 'Проверять SSL сертификат сервера')]")
     private WebElement selectToggleSSL;
-
-    public WebDriver getDriver() {
-        return driver;
-    }
 
     public WebElement getButtonToSettings() {
         return buttonToSettings;

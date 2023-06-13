@@ -6,11 +6,9 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class SearchPage extends BasePage {
+public class MenuSearchPage extends BasePage {
 
-    private WebDriver driver;
-
-    public SearchPage(WebDriver driver) {
+    public MenuSearchPage(WebDriver driver) {
         super(driver);
     }
 

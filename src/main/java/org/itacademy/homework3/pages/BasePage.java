@@ -12,7 +12,6 @@ import org.openqa.selenium.support.PageFactory;
 public class BasePage {
 
     private WebDriver driver;
-    private static final Logger LOGGER = LogManager.getLogger(BasePage.class);
 
     public BasePage(WebDriver driver) {
         PageFactory.initElements(DriverManager.getDriver(), this);

@@ -6,7 +6,7 @@
     </listeners>
     <test name="Test 1">
         <classes>
-            <class name="org.itacademy.homework3.SearchTest"/>
+            <class name="org.itacademy.homework3.MenuSearchTest"/>
 <!--            <class name="org.itacademy.homework3.DeliveryDelayTest"/>-->
             <class name="org.itacademy.homework3.CatalogCompareTest"/>
         </classes>

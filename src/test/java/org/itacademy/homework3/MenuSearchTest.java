@@ -16,7 +16,7 @@ import java.time.Duration;
 
 @Log4j2
 @Listeners
-public class SearchTest extends BaseTest {
+public class MenuSearchTest extends BaseTest {
 
     private SearchSteps searchSteps;
 
