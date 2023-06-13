@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CatalogItem {
 
-    String name;
+    String title;
     String price;
     String offers;
 
     @Override
     public String toString() {
         return "\nCatalogItem{" +
-                "\nname='" + name + '\'' +
+                "\nname='" + title + '\'' +
                 "\nprice='" + price + '\'' +
                 "\noffers='" + offers + '\'' +
                 '}';

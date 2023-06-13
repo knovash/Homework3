@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import lombok.extern.log4j.Log4j2;
 import org.itacademy.homework3.models.CatalogItem;
 import org.itacademy.homework3.pages.CatalogElement;
+import org.itacademy.homework3.pages.CatalogPageComponent;
 import org.itacademy.homework3.steps.CatalogSteps;
 import org.itacademy.homework3.utils.CatalogItemsToJSON;
 import org.itacademy.homework3.utils.Config;
@@ -36,7 +37,7 @@ public class CatalogResultsTest extends BaseTest {
     @DataProvider(name = "item", parallel = false) // если нет имени то определяется по имени метода
     public Object[][] item() // имя метода дата провайдера
     {
-        return new Object[][]{{"iphone 13"}};
+        return new Object[][]{{"iphone 11"}};
     }
 
     @Description("Results to WebElements to CatalogElements to Objects to JSON")

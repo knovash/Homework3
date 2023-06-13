@@ -72,10 +72,10 @@ public class CatalogSteps {
 
     public CatalogItem elementToObject(CatalogElement topElement) {
         CatalogItem object = new CatalogItem();
-        object.setName(topElement.getProductTitle().getText());
+        object.setTitle(topElement.getProductTitle().getText());
         object.setPrice(topElement.getProductPrice().getText());
         object.setOffers(topElement.getProductOffers().getText());
-        log.info(object);
+//        log.info(object);
         return object;
     }
 }
