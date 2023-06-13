@@ -15,7 +15,7 @@ public class CatalogItem {
 
     @Override
     public String toString() {
-        return "CatalogItem{" +
+        return "\nCatalogItem{" +
                 "\nname='" + name + '\'' +
                 "\nprice='" + price + '\'' +
                 "\noffers='" + offers + '\'' +

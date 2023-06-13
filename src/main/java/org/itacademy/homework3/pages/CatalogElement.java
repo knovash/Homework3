@@ -11,47 +11,40 @@ import org.openqa.selenium.support.PageFactory;
 
 @Log4j2
 public class CatalogElement {
-    private WebDriver driver;
+//    private WebDriver driver;
     protected WebElement root;
-//
+
     public CatalogElement(WebElement root){
-        PageFactory.initElements(driver, this);
+//        PageFactory.initElements(driver, this);
         this.root=root;
-
     }
-
-    @FindBy(xpath = ".//*[@class='product__title']")
-    private WebElement productTitle;
-
-    @FindBy(xpath = ".//*[@class='product__price-value product__price-value_primary']")
-    private WebElement productPrice;
-
-    @FindBy(xpath = ".//*[@class='button button_orange product__button']")
-    private WebElement productOffers;
 
     public WebElement getProductTitle() {
-//        log.info("ROOT " + root.getAttribute("outerHTML"));
-//        log.info("ROOT.xpath " + root.findElement(By.xpath(".//*[@class='product__title']")).getText());
-        log.info("ROOT.title " + productTitle.getAttribute("outerHTML"));
-        return productTitle;
+        return root.findElement(By.xpath(".//*[@class='product__title']"));
     }
     public WebElement getProductPrice() {
-        return productPrice;
+        return root.findElement(By.xpath(".//*[@class='product__price-value product__price-value_primary']"));
     }
     public WebElement getProductOffers() {
-        return productOffers;
+        return root.findElement(By.xpath(".//*[@class='button button_orange product__button']"));
     }
 
+//    @FindBy(xpath = ".//*[@class='product__title']")
+//    private WebElement productTitle;
+//    @FindBy(xpath = ".//*[@class='product__price-value product__price-value_primary']")
+//    private WebElement productPrice;
+//    @FindBy(xpath = ".//*[@class='button button_orange product__button']")
+//    private WebElement productOffers;
 //    public WebElement getProductTitle() {
-//        log.info("ROOT " + root.getAttribute("outerHTML"));
-//        log.info("ROOT.xpath " + root.findElement(By.xpath(".//*[@class='product__title']")).getText());
-//        return root.findElement(By.xpath(".//*[@class='product__title']"));
+////        log.info("ROOT " + root.getAttribute("outerHTML"));
+////        log.info("ROOT.xpath " + root.findElement(By.xpath(".//*[@class='product__title']")).getText());
+//        log.info("ROOT.title " + productTitle.getAttribute("outerHTML"));
+//        return productTitle;
 //    }
 //    public WebElement getProductPrice() {
-//        return root.findElement(By.xpath(".//*[@class='product__price-value product__price-value_primary']"));
+//        return productPrice;
 //    }
 //    public WebElement getProductOffers() {
-//        return root.findElement(By.xpath(".//*[@class='button button_orange product__button']"));
+//        return productOffers;
 //    }
-
 }

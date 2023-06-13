@@ -73,10 +73,6 @@ public class CatalogSteps {
     public CatalogItem elementToObject(CatalogElement topElement) {
         CatalogItem object = new CatalogItem();
         object.setName(topElement.getProductTitle().getText());
-
-//        object.setName(topElement.
-//        root.findElement(By.xpath(".//*[@class='product__title']")).getText()
-
         object.setPrice(topElement.getProductPrice().getText());
         object.setOffers(topElement.getProductOffers().getText());
         log.info(object);

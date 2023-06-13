@@ -56,8 +56,6 @@ public class CatalogResultsTest extends BaseTest {
                 .map(webElement -> new CatalogElement(webElement))
                 .collect(Collectors.toList());
 
-
-
         // to CatalogItem objects list (title,price,offers)
         List<CatalogItem> objList = catalogSteps.webelementsToObjects(catList);
 
