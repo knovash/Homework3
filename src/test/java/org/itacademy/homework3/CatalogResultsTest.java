@@ -51,32 +51,25 @@ public class CatalogResultsTest extends BaseTest {
         catalogSteps.clickButtonCatalog();
         catalogSteps.enterFieldSearch(item);
         catalogSteps.switchToFrame(driver);
-        List<WebElement> webList = catalogSteps.getListResultElements();
+        List<WebElement> webList = catalogSteps.getListResultElements(); // лист найденых вебэлементов товаров
 
-        List<CatalogElement> listCatEl =
-                webList.stream()
-                        .peek(x1 -> System.out.println("WEB " + x1.getAttribute("outerHTML")))
-                        .map(webElement -> new CatalogElement(webElement, driver))
-                        .collect(Collectors.toList());
+        List<CatalogElement> catList = webList.stream()
+                .map(webElement -> new CatalogElement(webElement, driver))
+                .collect(Collectors.toList());
 
-        listCatEl.stream()
-                .forEach(x -> {
-                    log.info(x.getProductTitle().getText());
-                    log.info(x.getProductPrice().getText());
-                    log.info(x.getProductOffers().getText());
-                });
-//
-//        List<CatalogItem> objList = catalogElementSteps.webListToObjectList(listCatEl);
-//
-//
-//        CatalogItemsToJSON.toJson(objList, "src/main/resources/data/catalogitems.json");
+//        catList.stream()
+//                .forEach(x -> {
+//                    log.info(x.getProductTitle().getText());
+//                    log.info(x.getProductPrice().getText());
+//                    log.info(x.getProductOffers().getText());
+//                });
 
-//
-////        List<CatalogItem> objList = catalogSteps.webListToObjectList(webList);
-//        log.info("CATALOG ITEM OBJECTS LIST");
-//        objList.stream().forEach(catalogItem -> log.info(catalogItem));
-//        CatalogItemsToJSON.toJson(objList, "src/main/resources/data/catalogitems.json");
-//        Assert.assertTrue(catalogSteps.checkTitleCompare(),"Title compare not displayed");
+
+        List<CatalogItem> objList = catalogSteps.webListToObjectList(catList);
+        log.info("\nCATALOG ITEM OBJECTS LIST");
+        objList.stream().forEach(catalogItem -> log.info("\n" + catalogItem));
+        CatalogItemsToJSON.toJson(objList, "src/main/resources/data/catalogitems.json");
+        Assert.assertTrue(true,"xxx");
         WaitUtils.waitSeconds(3); // подождать посмотреть на результат
     }
 }

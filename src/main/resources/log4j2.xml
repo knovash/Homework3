@@ -3,10 +3,10 @@
     <Appenders>
         <File name="File" fileName="log/Log.log" append="false">
 <!--            <PatternLayout pattern="File: %d{HH:mm} [%t] %-5level %logger{36} -\n %msg%n"/>-->
-            <PatternLayout pattern="[%c] - %msg%n"/>
+            <PatternLayout pattern="[%c.%method] - %msg%n"/>
         </File>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%c] - %msg%n"/>
+            <PatternLayout pattern="[%c.%method] - %msg%n"/>
         </Console>
     </Appenders>
     <Loggers>

@@ -64,5 +64,19 @@ public class CatalogSteps {
         return catalogPage.getListSearchResultElements();
     }
 
+    public List<CatalogItem> webListToObjectList(List<CatalogElement> list) {
+        List<CatalogItem> listCatalogItems = list.stream()
+                .map(catalogElement -> elementToObject(catalogElement))
+                .collect(Collectors.toList());
+        return listCatalogItems;
+    }
 
+    public CatalogItem elementToObject(CatalogElement topElement) {
+        CatalogItem object = new CatalogItem();
+        object.setName(topElement.getProductTitle().getText());
+        object.setPrice(topElement.getProductPrice().getText());
+        object.setOffers(topElement.getProductOffers().getText());
+        log.info(object);
+        return object;
+    }
 }

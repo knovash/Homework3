@@ -31,8 +31,8 @@ public class CatalogElementSteps {
 //    public String getOffers(CatalogElement element) {
 //        return element.getProductOffers().getText();
 //    }
-
-
+//
+//
 //    public CatalogItem elementToObject(CatalogElement topElement) {
 //        CatalogItem object = new CatalogItem();
 //        log.info("CONTEXT: " + topElement);
@@ -44,7 +44,7 @@ public class CatalogElementSteps {
 //        log.info(object);
 //        return object;
 //    }
-
+//
 //    public List<CatalogItem> webListToObjectList(List<CatalogElement> list) {
 //        List<CatalogItem> listCatalogItems = list.stream()
 //                .map(webElement -> elementToObject(webElement))
