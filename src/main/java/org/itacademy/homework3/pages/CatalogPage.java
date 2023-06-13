@@ -1,6 +1,5 @@
 package org.itacademy.homework3.pages;
 
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -69,7 +68,7 @@ public class CatalogPage extends BasePage {
         return titleCompare;
     }
 
-    public List<WebElement> getListSearchResultElements() {
+    public List<WebElement> getSearchResultElements() {
         return listSearchResultElements;
     }
 

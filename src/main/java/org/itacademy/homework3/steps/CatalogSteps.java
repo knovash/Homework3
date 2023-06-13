@@ -5,7 +5,6 @@ import org.itacademy.homework3.models.CatalogItem;
 import org.itacademy.homework3.pages.CatalogElement;
 import org.itacademy.homework3.pages.CatalogPage;
 import org.itacademy.homework3.utils.WaitUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -59,12 +58,12 @@ public class CatalogSteps {
         return catalogPage.getTitleCompare().isDisplayed();
     }
 
-    public List<WebElement> getListResultElements() {
+    public List<WebElement> getSearchResults() {
         log.info("getButtonCompare click");
-        return catalogPage.getListSearchResultElements();
+        return catalogPage.getSearchResultElements();
     }
 
-    public List<CatalogItem> webListToObjectList(List<CatalogElement> list) {
+    public List<CatalogItem> webelementsToObjects(List<CatalogElement> list) {
         List<CatalogItem> listCatalogItems = list.stream()
                 .map(catalogElement -> elementToObject(catalogElement))
                 .collect(Collectors.toList());
